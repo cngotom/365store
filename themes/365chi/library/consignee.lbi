@@ -1,0 +1,34 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <div class="o_write">    
+<h6><span>{$lang.consignee_info}</span> <!-- {if  !$need_add_consginee}  --><a onclick="close_consignee(this)" href="javascript:void(0)" id="lbtnConsigneeWrite">[关闭]</a><!--{/if}--></h6>
+
+<div class="middle">
+
+<div id="addressListPanel">
+    {include file='library/flow/addressListPanel.lbi '}
+</div>
+
+<div id="consignee_addr">
+    {include file='library/flow/consignee_addr.lbi '}
+</div>
+
+<div style="padding:10px 0 20px 45px;"><a onclick="addNewAddress(this);" href="#none">[添加到常用地址]</a></div>    
+    
+<div class="footer">
+    <input type="button" onclick="savePart_consignee(this)" value="保存收货人信息" clstag="checkout|keycount|jiesuan|saveshouhuo" class="btn">
+</div>    
+    
+</div>
+
+
+
+
+
+
+
+
+
+
+
+</div>

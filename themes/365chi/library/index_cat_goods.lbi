@@ -1,0 +1,9 @@
+{foreach from=$goods_list item=goods  name=child}
+    {if  $smarty.foreach.child.index < $count }
+        <div class="sales_h"    {if  $smarty.foreach.child.first }   style="border-left:1px solid #d7d7d7;" {/if}>
+            <a  href="{$goods.url}"><img width="135" height="135" src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a>
+            <span><a  href="{$goods.url}">{$goods.short_name}</a></span>
+            <span style="color:#cf2424; "><h1>￥{$goods.price}</h1></span>
+        </div>
+    {/if}
+{/foreach}  

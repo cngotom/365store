@@ -1,0 +1,12 @@
+Array
+(
+    [Filedata] => Array
+        (
+            [name] => IMG_6555.JPG
+            [type] => application/octet-stream
+            [tmp_name] => C:\Windows\Temp\php77C1.tmp
+            [error] => 0
+            [size] => 2584519
+        )
+
+)

@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="js/uniform.default.css" />  
+<link href="user_center.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,jquery-1.7.2.min.js,jquery.uniform.min.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="wrap box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+</div>
+<!--当前位置 end-->
+<div class="blank"></div>
+<div class="wrap clearfix">
+  <!--left start-->
+  <div class="AreaL">
+    <div class="box">
+     <div class="box_1">
+      <div class="userCenterBox">
+        <!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
+      </div>
+     </div>
+    </div>
+  </div>
+  <!--left end-->
+  <!--right start-->
+  <div class="AreaR">
+    
+      <div class="m" id="v-goods">
+                <div class="mt">
+                    <h2>商品评价</h2>
+                    <span class="ftx3">对商品质量进行评价</span>
+                </div>
+                <div class="mc">
+                    <table cellpadding="0" cellspacing="0" width="100%">
+                        <tbody>
+                        <tr>
+                            <th width="8%">商品编号</th>
+                            <th width="50%">商品名</th>
+                            <th width="12%">购买时间</th>
+                             <th width="30%">评价</th>
+                        </tr>
+                            
+                        <!-- {foreach from=$goods_list item=goods  } -->
+                        <tr class="productdetals">
+                            <td  width="8%" class="tdone" name="213086">{$goods.goods_sn}</td>
+                            <td width="50%"><div class="p-name"><a href="{$goods.goods_url}" target="_blank"> {$goods.goods_name}</a></div></td>
+                            <td  width="12%"> {$goods.time}  </td><td width="30%">
+                                <!-- {if  $goods.is_commented eq 0} -->
+                                <a href="{$goods.comment_url}" target="_blank">发表评价</a>
+                                <!--{else}-->
+                                已评论
+                                <!-- {/if } -->
+                            </td>
+                        </tr>
+                        
+                        <!-- {/foreach} -->
+                    </tbody></table>
+                </div>
+        </div>
+        
+        <div class="blank"></div>
+        <div class="m" id="v-goods">
+                <div class="mt">
+                    <h2>满意度评价</h2>
+                    <span class="ftx3">对三六五服务进行评价</span>
+                </div>
+                <div class="mc">
+                    {if !$is_order_commented}
+                    <form id="order_comment" method="post" action="user.php?order_id={$order_id}&act=order_comment"   onsubmit="return checkData();" class="order_comment">
+                        <!-- {foreach from=$questions item=question name=foo } -->
+                        <dl>
+                            <dt>{$smarty.foreach.foo.iteration}、{$question}</dt>
+                            <dd>
+                                <span class="nomargin"><input type="radio"  value="5" name="radio_option[{$smarty.foreach.foo.index}]"> 非常满意 </span>
+                                <span><input type="radio"  value="4" name="radio_option[{$smarty.foreach.foo.index}]"> 满意 </span>
+                                <span ><input type="radio"  value="3"  name="radio_option[{$smarty.foreach.foo.index}]"> 一般 </span>
+                                <span><input type="radio"  value="2" name="radio_option[{$smarty.foreach.foo.index}]"> 不满意 </span>
+                                <span><input type="radio" value="1"  name="radio_option[{$smarty.foreach.foo.index}]"> 非常不满意 </span>
+                            </dd>
+                        </dl>
+                         <!-- {/foreach} -->
+                         <dl class="last">
+                            <dt>  您本次购物的整体感受如何？（必填，其他用户可见）' );</dt>
+                            <dd>
+                                    <textarea class="area1" id="radioq10" name="comment_text" type="text" value="1706"></textarea>
+                             </dd>
+                        </dl>
+                         <div> <input  type="hidden"     name="doPost" value ="1"    /> </div>
+                        <div  style="text-align:center;margin-left:10px;"> <input type="submit"  value="提交 "></input> </div>
+                    </form>
+                    {else}
+                        你已经评价成功，您可以进入左侧“我的评论-->满意度评价”菜单查看已发表的满意度评价内容。          
+                    {/if}
+                </div>
+        </div>
+         <div class="blank"></div>
+        <div class="m" id="v-exp">
+                <h5>评价说明</h5>
+                1.满意度评价用来对本次购物过程中的365服务进行评价，评价大于100元的订单可以获得<b class="red">2</b>个积分；<br>
+                2.商品评价用来对所购商品的质量进行评价，赠品评价暂时不奖励积分，奖励积分规则详见<a href="http://help.360buy.com/help/question-58.html" target="_blank">积分说明</a>；<br>
+                3.商品评价资格有效期为订单完成后半年内，满意度评价资格有效期为订单完成后三个月内。
+                <br>
+                <h5>晒单说明</h5>
+                1.您可以通过晒单贴向其他网友展示所购商品的照片、使用心得；<br>
+                2.通过审核后每个商品前五个晒单帖可获得<b class="red">10</b>个积分；<br>
+                3.晒单帖需包含一定的介绍文字及3张以上真实拍摄的原创商品照片；<br>
+                4.订单内每个商品都可发表一个晒单帖(不包括同一个商品购买多个)，赠品晒单帖暂时不奖励积分。
+                <input type="hidden" id="requestid" value="934907E72F395E602AAFF356035C89CE">
+        </div>
+      
+      
+      
+  </div>
+  <!--right end-->
+</div>
+<div class="blank"></div>
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+</body>
+<script type="text/javascript">
+{foreach from=$lang.clips_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+
+function checkData(){
+    
+    var error = "";
+    /*
+    $('#order_comment dl:not(".last")').each(function(index,ele){
+        if( $(ele).find('input:radio:checked').val()     == null     )
+         {
+            error  +=  $(ele).find('dt').html();
+            error += "\n";
+         }
+    });
+    */
+    if( $('#order_comment dl.last textarea').val() == "" ) {
+        error += $('#order_comment dl.last dt' ).html();
+         error += "\n";
+    }
+    
+    if(error)
+     {
+        error += "没有填写" ;  
+        alert(error);
+        return false;
+     }
+     return true;
+
+}
+
+$(function(){
+
+  
+        
+        
+        
+        
+ });
+
+</script>
+</html>
+          
+    </body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->                  
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="js/uniform.default.css" />  
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="user_center.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+    .refund{
+        width: 790px;
+        font-size: 12px;
+    }    
+    .refund_title{
+       font-weight: bold;
+       padding: 10px 0 6px 5px;
+    }
+    .area_title_step_underline {
+       border-bottom: 1px solid #DDDDDD;
+      
+   }
+   .text_content {
+       border-bottom: 1px solid #DDDDDD;
+       line-height: 30px;
+       padding: 5px 0 5px 5px;
+   }
+   .text_right {
+       text-align: right;
+   }
+   .button_lessThan4 {
+    background: url("themes/365chi/images/green/user-center/button.jpg");
+    border: medium none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: inherit;
+    height: 20px;
+    line-height: 19px;
+    margin-right: 8px;
+    text-align: center;
+    width: 71px;
+   }
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,jquery-1.7.2.min.js,jquery.uniform.min.js'}
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="wrap box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+</div>
+<!--当前位置 end-->
+<div class="blank"></div>
+<div class="wrap clearfix">
+  <!--left start-->
+  <div class="AreaL">
+    <div class="box">
+     <div class="box_1">
+      <div class="userCenterBox">
+        <!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
+      </div>
+     </div>
+    </div>
+  </div>
+  <!--left end-->
+  <!--right start-->
+  <div class="AreaR">
+     <form action="" method="post" name="refund">
+        <div class="refund">
+            <div class="refund_title area_title_step_underline"><span>1.选择退款方式</span></div>
+            <table width="790">
+                <tr>
+                    <!--
+                    <td width="180" class="text_content text_right">
+                        <input type="radio" name="where" value="to365" /> 退款至365商城账户
+                    </td>
+                    -->
+                    <td width="270" class="text_content">
+                        <input type="radio" name="where" value="tobank" checked="checked" /> 退款至银行账户（收取<span style="color:red;">5%</span>服务费） 可退款金额:￥{$return_money}
+                    </td> 
+                    <td width="340" class="text_content">
+                        
+                    </td>
+                </tr>
+            </table>
+        </div>
+        
+        <div class="refund">
+            <div class="refund_title area_title_step_underline"><span>2.填写收款账户信息</span></div>
+            <table width="790">
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span style="color:red;">*</span><span>收款人姓名：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                        <input id="realname" type="text"  value="" maxlength="60" size="24" name="name" style="width:230px;">
+                    </td> 
+                    <td width="340" class="text_content">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span style="color:red;">*</span><span>收款人账号：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                        <input id="account" type="text"  value="" maxlength="37" size="24" name="card_no" style="width:230px;">
+                    </td> 
+                    <td width="340" class="text_content">
+                        
+                    </td>
+                </tr>
+                
+            </table>
+            <div class="refund_title area_title_step_underline"><span>请选择收款账户开户行</span></div>
+            <table width="790">
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span style="color:red;">*</span><span>收款账户所属行别：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                        <select id="OUTBANK"  style="width:230px;" name="bank_no">
+                            <option selected="selected" value="">************请选择行别************</option>
+                                {$bank_sel_value}
+                         </select>
+                    </td> 
+                    <td width="340" class="text_content">
+                        <img src="themes/365chi/images/green/user-center/arr_tip_off.gif" />&nbsp;选择您转账账户所在银行
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span style="color:red;">*</span><span>按地区查找收款账户开户行：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                         <input id="areaS" type="text" name="location" style="width:130px;">(请您填写省市名称)
+                    </td> 
+                    <td width="340" class="text_content"></td>
+                </tr>
+
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span style="color:red;">*</span><span>收款账户开户网点：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                         <input id="netpot" type="text" name="netpot" style="width:160px;">
+                    </td> 
+                    <td width="340" class="text_content"></td>
+                </tr>
+                
+            </table>
+            <div class="refund_title area_title_step_underline"><span>3.填写退款原因</span></div>
+            <table width="790">
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span>退款原因：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                        <input id="reason" type="text"  value="" maxlength="200" size="24" name="reason" style="width:230px;">
+                    </td> 
+                    <td width="340" class="text_content">
+                        
+                    </td>
+                </tr>
+                <tr>
+                    <td width="180" class="text_content text_right">
+                        <span style="color:red;">*</span><span>联系人手机：</span>
+                    </td>
+                    <td width="270" class="text_content">
+                        <input id="mobile" type="text"  value="" maxlength="11" size="24" name="mobile" style="width:100px;">
+                    </td> 
+                    <td width="340" class="text_content">
+                        
+                    </td>
+                </tr>
+                
+            </table>
+            
+        </div>
+        
+        <div class="refund">
+            <div class="refund_title area_title_step_underline" style=" padding-left: 200px;">
+                <input type="hidden" value="do_back_order" name="act">
+                <input type="hidden" value="{$order_id}" name="order_id">    
+                <input id="subBut" class="button_lessThan4" type="button" value="申请退款" name="subBut">
+            </div>
+        </div>
+    </form>
+    
+     
+      
+  </div>
+  <!--right end-->
+</div>
+<div class="blank"></div>
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+
+
+<script type="text/javascript">
+
+$(function() {
+    $( "#tabs" ).tabs();
+    
+    $('#subBut').click(function(){
+        var error = "";
+        if( $('#realname').val()  == "" )
+            error += "姓名不能为空\n";
+        if( $('#account').val()  == "" )
+            error += "账号不能为空\n";
+        
+        if(! /[0-9]{19}/.test($('#account').val()))
+            error += "请您输入正确的银行账号\n";
+        
+        if( $('#OUTBANK').val()  == "" )
+            error += "请您选择银行的类别\n";
+
+        if( $('#areaS').val()  == "" )
+            error += "银行所在的省市不能为空\n";
+        if( $('#netpot').val()  == "" )
+            error += "银行网点不能为空\n";
+        if( $('#mobile').val()  == "" )
+            error += "手机不能为空\n";
+        
+        var mobReg = /((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$)/;
+        if(!mobReg.test($('#mobile').val())){
+            error += '请输入正确的电话号码\n';
+         }
+        
+       if(error == "") 
+        $('form[name=refund]').submit();
+       else
+        alert(error);
+    })
+    
+});
+
+</script>
+</body>
+
+</html>

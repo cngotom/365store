@@ -1,0 +1,353 @@
+{* TitlePicWidth: 2 *}
+{* TitlePicHeight: 38 *}
+
+{* 说明：$title_pic，分类标题图片地址； *}
+{* 说明：$base_style，基本风格样式颜色； *}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$topic.title}_{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{if $topic.css neq ''}
+<style type="text/css">
+  {$topic.css}
+</style>
+{/if}
+<style type="text/css">
+h6{
+font-family:"黑体";
+background:url({$title_pic}) repeat-x 0 0;
+text-align:left;
+height:38px;
+line-height:38px;
+padding-left:20px;
+font-weight:200;
+font-size:18px;
+color:#fff;
+}
+.goodsbox{
+margin:5px;
+background:#fff;
+border:1px solid {$base_style};
+width:170px;
+min-height:1px;
+display: -moz-inline-stack;
+display: inline-block;
+text-align:center;
+vertical-align: top;
+zoom:1;
+*display:inline;
+_height:1px;
+}
+  .goodsbox .imgbox{
+	width:170px;
+	margin:0 0 5px 0;
+	overflow:hidden;
+	} 
+.sort_box{
+border:1px solid #ccc;
+background:#f5f5f5;
+padding:10px 0 10px 10px;
+}	
+.sort_box a{
+color:#222;
+}
+
+#Table_01 {
+	position:absolute;
+	width:1001px;
+	height:2166px;
+}
+
+#zongzi-01 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1001px;
+	height:535px;
+}
+
+#zongzi-02 {
+	position:absolute;
+	left:0px;
+	top:535px;
+	width:3px;
+	height:3px;
+}
+
+#zongzi-03 {
+	position:absolute;
+	left:3px;
+	top:535px;
+	width:150px;
+	height:331px;
+}
+
+#zongzi-04 {
+	position:absolute;
+	left:153px;
+	top:535px;
+	width:848px;
+	height:3px;
+}
+
+#zongzi-05 {
+	position:absolute;
+	left:0px;
+	top:538px;
+	width:3px;
+	height:328px;
+}
+
+#zongzi-06 {
+	position:absolute;
+	left:153px;
+	top:538px;
+	width:11px;
+	height:328px;
+}
+
+#zongzi-07 {
+	position:absolute;
+	left:164px;
+	top:538px;
+	width:156px;
+	height:328px;
+}
+
+#zongzi-08 {
+	position:absolute;
+	left:320px;
+	top:538px;
+	width:23px;
+	height:328px;
+}
+
+#zongzi-09 {
+	position:absolute;
+	left:343px;
+	top:538px;
+	width:135px;
+	height:328px;
+}
+
+#zongzi-10 {
+	position:absolute;
+	left:478px;
+	top:538px;
+	width:162px;
+	height:328px;
+}
+
+#zongzi-11 {
+	position:absolute;
+	left:640px;
+	top:538px;
+	width:177px;
+	height:5px;
+}
+
+#zongzi-12 {
+	position:absolute;
+	left:817px;
+	top:538px;
+	width:146px;
+	height:328px;
+}
+
+#zongzi-13 {
+	position:absolute;
+	left:963px;
+	top:538px;
+	width:38px;
+	height:328px;
+}
+
+#zongzi-14 {
+	position:absolute;
+	left:640px;
+	top:543px;
+	width:25px;
+	height:323px;
+}
+
+#zongzi-15 {
+	position:absolute;
+	left:665px;
+	top:543px;
+	width:151px;
+	height:323px;
+}
+
+#zongzi-16 {
+	position:absolute;
+	left:816px;
+	top:543px;
+	width:1px;
+	height:323px;
+}
+
+#zongzi-17 {
+	position:absolute;
+	left:0px;
+	top:866px;
+	width:448px;
+	height:462px;
+}
+
+#zongzi-18 {
+	position:absolute;
+	left:448px;
+	top:866px;
+	width:553px;
+	height:544px;
+}
+
+#zongzi-19 {
+	position:absolute;
+	left:0px;
+	top:1328px;
+	width:448px;
+	height:82px;
+}
+
+#zongzi-20 {
+	position:absolute;
+	left:0px;
+	top:1410px;
+	width:3px;
+	height:496px;
+}
+
+#zongzi-21 {
+	position:absolute;
+	left:3px;
+	top:1410px;
+	width:598px;
+	height:496px;
+}
+
+#zongzi-22 {
+	position:absolute;
+	left:601px;
+	top:1410px;
+	width:400px;
+	height:496px;
+}
+
+#zongzi-23 {
+	position:absolute;
+	left:0px;
+	top:1906px;
+	width:1001px;
+	height:260px;
+}
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js,transport.js'}
+<div class="blank"></div>
+
+<div style='margin:0 auto;text-align:center;background-color:#f7f4eb;height:2166px;' class="clearfix">
+<div style="width:1001px;">
+<div id="Table_01">
+	<div id="zongzi-01">
+		<img src="images/topic/zongzi_01.gif" width="1001" height="535" alt="">
+	</div>
+	<div id="zongzi-02">
+		<img src="images/topic/zongzi_02.gif" width="3" height="3" alt="">
+	</div>
+	<div id="zongzi-03">
+            <a href="goods.php?id=1724"  target="_blank"><img src="images/topic/zongzi_03.gif" width="150" height="331" alt=""> </a>
+	</div>
+	<div id="zongzi-04">
+		<img src="images/topic/zongzi_04.gif" width="848" height="3" alt="">
+	</div>
+	<div id="zongzi-05">
+		<img src="images/topic/zongzi_05.gif" width="3" height="328" alt="">
+	</div>
+	<div id="zongzi-06">
+		<img src="images/topic/zongzi_06.gif" width="11" height="328" alt="">
+	</div>
+	<div id="zongzi-07">
+		<a href="goods.php?id=1725" target="_blank"><img src="images/topic/zongzi_07.gif" width="156" height="328" alt=""> </a>
+	</div>
+	<div id="zongzi-08">
+		<img src="images/topic/zongzi_08.gif" width="23" height="328" alt="">
+	</div>
+	<div id="zongzi-09">
+		<a href="goods.php?id=1711" target="_blank"><img src="images/topic/zongzi_09.gif" width="135" height="328" alt=""></a>
+	</div>
+	<div id="zongzi-10">
+		<a href="goods.php?id=1712" target="_blank"><img src="images/topic/zongzi_10.gif" width="162" height="328" alt=""></a>
+	</div>
+	<div id="zongzi-11">
+		<img src="images/topic/zongzi_11.gif" width="177" height="5" alt="">
+	</div>
+	<div id="zongzi-12">
+		<a href="goods.php?id=1720" target="_blank"><img src="images/topic/zongzi_12.gif" width="146" height="328" alt=""></a>
+	</div>
+	<div id="zongzi-13">
+		<img src="images/topic/zongzi_13.gif" width="38" height="328" alt="">
+	</div>
+	<div id="zongzi-14">
+		<img src="images/topic/zongzi_14.gif" width="25" height="323" alt="">
+	</div>
+	<div id="zongzi-15">
+		<a href="goods.php?id=1722" target="_blank"><img src="images/topic/zongzi_15.gif" width="151" height="323" alt=""></a>
+	</div>
+	<div id="zongzi-16">
+		<img src="images/topic/zongzi_16.gif" width="1" height="323" alt="">
+	</div>
+	<div id="zongzi-17">
+		<a href="goods.php?id=1726" target="_blank"><img src="images/topic/zongzi_17.gif" width="448" height="462" alt=""></a>
+	</div>
+	<div id="zongzi-18">
+		<a href="goods.php?id=1727" target="_blank"><img src="images/topic/zongzi_18.gif" width="553" height="544" alt=""></a>
+	</div>
+	<div id="zongzi-19">
+		<img src="images/topic/zongzi_19.gif" width="448" height="82" alt="">
+	</div>
+	<div id="zongzi-20">
+		<img src="images/topic/zongzi_20.gif" width="3" height="496" alt="">
+	</div>
+	<div id="zongzi-21">
+		<a href="goods.php?id=1728" target="_blank"><img src="images/topic/zongzi_21.gif" width="598" height="496" alt=""></a>
+	</div>
+	<div id="zongzi-22">
+		<img src="images/topic/zongzi_22.gif" width="400" height="496" alt="">
+	</div>
+	<div id="zongzi-23">
+		<img src="images/topic/zongzi_23.png" width="1001" height="260" alt="">
+	</div>
+</div>
+</div>
+</div>
+<div class="blank5"></div>
+
+
+<div style="background-color:#f7f4eb;">
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+<div class="blank" style="background-color:#f7f4eb;" ></div>
+<!-- #BeginLibraryItem "/library/page_old_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+</body>
+</html>

@@ -1,0 +1,159 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  {insert_scripts files='slides.min.jquery.js'} 
+  	<style type="text/css" media="screen">
+		/*
+			Load CSS before JavaScript
+		*/
+		
+		/*
+			Slides container
+			Important:
+			Set the width of your slides container
+			Set to display none, prevents content flash
+		*/
+		.slides_container {
+			width:765px;
+			display:none;
+		}
+
+		/*
+			Each slide
+			Important:
+			Set the width of your slides
+			If height not specified height will be set by the slide content
+			Set to display block
+		*/
+		.slides_container div {
+			width:765px;
+			height:417px;
+			display:block;
+			text-align:left;
+		}
+		
+		/*
+			Optional:
+			Reset list default style
+		*/
+		.pagination {
+			list-style:none;
+			margin:0;
+			padding:0;
+		}
+
+		/*
+			Optional:
+			Show the current slide in the pagination
+		*/
+		.pagination .current a {
+			color:red;
+		}
+		
+		.pagination {
+			list-style: none outside none;
+			margin: 0;
+			padding: 0;
+			bottom: 0;
+			height: 30px;
+			left: 0;
+			padding: 0px;
+			position: absolute;
+			width:100%;
+			z-index: 10;
+			background-image:url(themes/365chi/images/green/slide/bar-bg.png);
+			background-repeat:repeat-x;			
+		}
+		.pagination li{
+			border-radius: 15px 15px 15px 15px;
+			color: #FFFFFF;
+			cursor: pointer;
+			float: left;
+			font-family: 宋体;
+			font-size: 28px;
+			font-style: italic;
+			font-weight: bold;
+			height: 30px;
+			line-height: 30px;
+			margin-left: 10px;
+			padding-left: 6px;
+			position: relative;
+			text-align: left;
+			width: 24px;
+			z-index: 15;			
+		}		
+		.pagination .current {
+			background: none repeat scroll 0 0 #000000;
+			color: #0C0;
+			opacity: 0.9;
+		}		
+		.pagination li a{
+			border-radius: 15px 15px 15px 15px;
+			text-decoration:none;
+			color: #FFFFFF;
+		}
+		.pagination li.current a{
+			color: #0C0;
+		}
+		
+		/******格子样式********/
+		.pic-grid{
+			position: relative;
+		}
+		.pic-grid div{
+			display: block;
+			position: absolute;
+		}
+		.pic-grid .maskLayer{
+			top: 0px; 
+			left: 0px; 
+			width: 100%; 
+			height: 100%; 
+			position: absolute; 
+			background-image:url(themes/365chi/images/green/slide/zz4.png);
+			
+		}
+	</style>
+
+    <div class='page-content pic-grid-container'>
+    	<!-- 广告滚动 -->
+        <div id="slides"  style="position: relative;float:right;">
+            <div class="slides_container">
+    		   <div>
+                           <img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_1.png"/>
+                   </div>
+                   <div>
+                          <img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_2.png"> 
+                </div>
+                
+    		  <div>
+                    <!-- 格子图片 -->
+                    <div class="pic-grid" style="float:right;width:765px;display:none1;">
+                        <div class="pic-grid-item" style="top:0px;left:0px;width: 260px;height:210px;">
+                            <a href="goods.php?id=1130"> <img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_3_1.png"/>
+                            <div style="" class="maskLayer"> </a></div>
+                        </div>
+                        <div class="pic-grid-item" style="top:0px;left:260px;width: 260px;height:210px;">
+                            <a href="goods.php?id=1589"><img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_3_2.png"/>
+                             <div style="" class="maskLayer"></a></div>
+                        </div>
+                        <div class="pic-grid-item" style="top:0px;left:520px;width: 260px;height:420px;">
+                           <a href="goods.php?id=1082"> <img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_3_3.png"/>
+                             <div style="" class="maskLayer"></a></div>
+                        </div>
+                        <div class="pic-grid-item" style="top:210px;left:0px;width: 520px;height:210px;">
+                           <a href="goods.php?id=1081"> <img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_3_4.png"/>
+                            <div style="" class="maskLayer"></a></div>
+                        </div>
+                   </div>
+                </div>        
+                <div>
+                   <a href="http://www.365chi.com/search.php?keywords=%E5%8C%97%E5%A4%A7%E8%8D%92">  <img src="{$smarty.const.NGINX_IMG_HOST}themes/365chi/images/green/slide/index_top_4.png"> </a>
+                </div>
+                
+                
+                
+            </div>
+        
+        </div>
+    </div>
+
+

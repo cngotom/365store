@@ -1,0 +1,132 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div id="sitenav">
+    <div class="wrap">
+        <ul>
+            <li class="sitenav_login f_l">
+                {insert_scripts files='utils.js,jquery-1.7.2.min.js,jquery.json-1.3.js,jquery-ui-1.8.18.custom.min.js,helper.js'}
+                {* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'} 
+            </li>    
+
+            <li class="sitenav_link f_r"><a class="l" target="_blank" href="http://www.365chi.com/help.php">帮助中心</a>|<a class="r" onclick="AddFavorite('康途健康商城_中国最大的健康网上商城,名牌保健营养品3-6折!')" href="javascript:void(0);">收藏本站</a></li>
+            <li class="sitenav_text_call f_r"><b>咨询热线<span class="ml10">400 8986 365</span></b></li>
+           
+            <li id="CartLi" class="sitenav_mycart f_l"><a class="sitenav_menu_hd" id="CartAA" href="flow.php?step=cart"><b class="icon"></b>购物车 <b class="id_num"><span id="ltlNum">{insert name='cart_info'}</span></b>件<b class="dot"></b></a>
+                <div id="CartDiv" style="display: none;" class="sitenav_menu_bg"><span class="join">最近加入的商品：</span>
+                    <ul class="shoplist">
+                 
+                    </ul>
+                </div>
+            </li> 
+
+        </ul>
+        <div class="clearfix">
+        </div>
+    </div>
+</div>
+
+<div id="topnav">
+    <div class="wrap">
+        <div class="logo f_l pt1">
+            <a href="http://www.365chi.com">
+                <img alt="365绿色商城" src="http://www.365chi.net/themes/green/images/logo.jpg"></a></div>
+        <div class="topnav_box f_l">
+            <a target="_blank" href="http://www.kangtu.com/note/10032.htm">
+                <img src="http://img.kttps.com/MallN/top_bg201201.jpg"></a></div>
+        <div class="search f_l">
+            <input type="text" onblur="if(value=='请输入搜索关键字'){value='请输入搜索关键字'}" onfocus="if(value=='请输入搜索关键字'){value=''}" value="请输入搜索关键字" id="key" class="key"><input type="button" value="搜&nbsp;索" class="search_btn" id="btn_search">
+            <div class="keyword mt5">
+                <b>热点：</b><a target="_blank" href="http://www.kangtu.com/lwy">青春态</a><a target="_blank" href="http://www.kangtu.com/dnwx">祛斑美白</a><a target="_blank" href="http://www.kangtu.com/jydb">祛皱</a><a target="_blank" href="http://www.kangtu.com/lh">祛痘</a><a target="_blank" href="http://www.kangtu.com/gzj">关节痛</a></div>
+        </div>
+    </div>
+    <div class="clearfix">
+    </div>
+</div>
+
+
+<div id="mainmenu">
+    <div id="top_nav" class="wrap">
+        <ul>
+            <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+            <li <!-- {if $nav.active eq 1} --> class="hover"<!-- {/if} -->>
+             <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a></li>
+            <!-- {/foreach} -->
+        </ul>
+        <span id="nav_hot"><img src="http://img.kttps.com/mallN/nav_hot.gif"></span>
+        <div class="clearfix">
+        </div>
+    </div>
+
+</div>
+<div id="hot_key">
+    <div class="wrap">
+        <!-- {if $is_index }-->
+            <div class="index_sort">
+                <a></a>
+            </div>
+        <!-- {else}  -->
+        <div class="all_sort" onmouseover="$('#all_category_list').show();"  onmouseout="$('#all_category_list').hide();">
+            <div class="category" >
+                <a></a>
+            </div>
+        
+            <!-- 所有分类  -->
+            <div style="display: none;" class="category_list" id="all_category_list">
+            <!--{foreach from=$categories item=cat}-->
+            <div class="item"  onmouseover="$(this).addClass('hover');"  onmouseout="$(this).removeClass('hover');">
+                <strong><a href="{$cat.url}"> {$cat.name|escape:html}：</a></strong>
+                        <!--{foreach from=$cat.cat_id item=child}-->
+                        <a href="{$child.url}">{$child.name|escape:html}</a> |&nbsp;
+                                <!--{foreach from=$child.cat_id item=childer}--> <dd style="float:left;">&nbsp;&nbsp;<a href="{$childer.url}">{$childer.name|escape:html}</a></dd><!--{/foreach}-->
+                    <!--{/foreach}-->
+            </div>
+            <!--{/foreach}--> 
+            </div>
+            <!-- 所有分类  -->
+       </div>
+        
+        <!-- {/if} -->
+        <div class="key_box f_l">
+               <!-- {foreach  name=navi_top_list from=$navigator_list.top item=nav} -->
+                  <!--  {if $smarty.foreach.navi_top_list.index % 4 == 3 }-->
+                <span></span>
+                <!-- {/if} -->
+                <a href="{$nav.url}" <!-- {if $nav.opennew eq 1} --> target="_blank" <!-- {/if} -->>{$nav.name}</a>
+             
+              <!-- {/foreach} -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+   <script type="text/javascript">
+    {literal}
+    $(function() {
+        $("#CartLi").mouseenter(function(){       
+            
+                $("#CartDiv").addClass("hover");
+                $("#CartDiv").show();
+          
+        });
+        $("#CartLi").mouseleave(function(){       
+            $("#CartDiv").removeClass("hover");
+            $("#CartDiv").hide();
+       
+        });
+       
+        $("#CartAA").mouseenter(function() {
+               updateCart();
+        }); 
+        $("#btn_search").click(function() {
+            SearchProduct();
+        }); 
+
+    });
+    {/literal}
+    </script>
+  

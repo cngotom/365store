@@ -1,0 +1,24 @@
+1、插件：[ECSHOP]QQ快速登陆
+在根目录-新建一个login 的文件夹
+在网站首页模板文件文件里  添加连接登陆地址 或者图片  /也可以在后台自定义导航里添加。也可以在 库项目文件里编辑添加。要怎么添加自己随意/。
+http://你的网站域名/login/QQOAuth 
+
+<a title="QQ快速登陆" href="login/QQOAuth/***">QQ登陆</a>
+
+
+只需要修改 config.php 这个文件就可以 修改以下
+<?php
+//这个文件是你需要修改的。你需先腾讯社区开放平台在创建应用 http://open.qq.com/
+define( "QQ_AKEY" , '申请的APP ID' );
+define( "QQ_SKEY" , '申请的KEY' );
+define( "MB_RETURN_FORMAT" , 'json' );
+?>
+==================服务QQ==============================
+若需技术支持，我的QQ是:1976468723   
+费用：1元
+呵呵， 就是想你帮我刷一哈我的网店，不是想要你的money，若舍不得可以还给你！
+网店地址：http://item.taobao.com/item.htm?id=13285623956
+ 
+
+
+2、插件：[ECSHOP]商品自动评论插件下载地址： http://bbs.ecshop.com/thread-167204-1-2.html

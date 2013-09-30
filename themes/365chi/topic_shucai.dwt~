@@ -1,0 +1,407 @@
+{* TitlePicWidth: 2 *}
+{* TitlePicHeight: 38 *}
+
+{* 说明：$title_pic，分类标题图片地址； *}
+{* 说明：$base_style，基本风格样式颜色； *}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$topic.title}_{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+{if $topic.css neq ''}
+<style type="text/css">
+  {$topic.css}
+</style>
+{/if}
+<style type="text/css">
+h6{
+font-family:"黑体";
+background:url({$title_pic}) repeat-x 0 0;
+text-align:left;
+height:38px;
+line-height:38px;
+padding-left:20px;
+font-weight:200;
+font-size:18px;
+color:#fff;
+}
+.goodsbox{
+margin:5px;
+background:#fff;
+border:1px solid {$base_style};
+width:170px;
+min-height:1px;
+display: -moz-inline-stack;
+display: inline-block;
+text-align:center;
+vertical-align: top;
+zoom:1;
+*display:inline;
+_height:1px;
+}
+  .goodsbox .imgbox{
+	width:170px;
+	margin:0 0 5px 0;
+	overflow:hidden;
+	} 
+.sort_box{
+border:1px solid #ccc;
+background:#f5f5f5;
+padding:10px 0 10px 10px;
+}	
+.sort_box a{
+color:#222;
+}
+
+#Table_01 {
+	position:absolute;
+	width:1006px;
+	height:2500px;
+}
+#shucai-01 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:1006px;
+	height:117px;
+}
+
+#shucai-02 {
+	position:absolute;
+	left:0px;
+	top:117px;
+	width:1005px;
+	height:93px;
+}
+
+#shucai-03 {
+	position:absolute;
+	left:1005px;
+	top:117px;
+	width:1px;
+	height:1737px;
+}
+
+#shucai-04 {
+	position:absolute;
+	left:0px;
+	top:210px;
+	width:1005px;
+	height:273px;
+}
+
+#shucai-05 {
+	position:absolute;
+	left:0px;
+	top:483px;
+	width:1px;
+	height:154px;
+}
+
+#shucai-06 {
+	position:absolute;
+	left:1px;
+	top:483px;
+	width:1004px;
+	height:46px;
+}
+
+#shucai-07 {
+	position:absolute;
+	left:1px;
+	top:529px;
+	width:1004px;
+	height:108px;
+}
+
+#shucai-08 {
+	position:absolute;
+	left:0px;
+	top:637px;
+	width:157px;
+	height:299px;
+}
+
+#shucai-09 {
+	position:absolute;
+	left:157px;
+	top:637px;
+	width:281px;
+	height:255px;
+}
+
+#shucai-10 {
+	position:absolute;
+	left:438px;
+	top:637px;
+	width:65px;
+	height:299px;
+}
+
+#shucai-11 {
+	position:absolute;
+	left:503px;
+	top:637px;
+	width:85px;
+	height:287px;
+}
+
+#shucai-12 {
+	position:absolute;
+	left:588px;
+	top:637px;
+	width:279px;
+	height:255px;
+}
+
+#shucai-13 {
+	position:absolute;
+	left:867px;
+	top:637px;
+	width:138px;
+	height:287px;
+}
+
+#shucai-14 {
+	position:absolute;
+	left:157px;
+	top:892px;
+	width:281px;
+	height:44px;
+}
+
+#shucai-15 {
+	position:absolute;
+	left:588px;
+	top:892px;
+	width:279px;
+	height:32px;
+}
+
+#shucai-16 {
+	position:absolute;
+	left:503px;
+	top:924px;
+	width:502px;
+	height:520px;
+}
+
+#shucai-17 {
+	position:absolute;
+	left:0px;
+	top:936px;
+	width:503px;
+	height:508px;
+}
+
+#shucai-18 {
+	position:absolute;
+	left:0px;
+	top:1444px;
+	width:1px;
+	height:410px;
+}
+
+#shucai-19 {
+	position:absolute;
+	left:1px;
+	top:1444px;
+	width:502px;
+	height:410px;
+}
+
+#shucai-20 {
+	position:absolute;
+	left:503px;
+	top:1444px;
+	width:502px;
+	height:410px;
+}
+
+#shucai-21 {
+	position:absolute;
+	left:0px;
+	top:1854px;
+	width:503px;
+	height:495px;
+}
+
+#shucai-22 {
+	position:absolute;
+	left:503px;
+	top:1854px;
+	width:503px;
+	height:495px;
+}
+
+#shucai-23 {
+	position:absolute;
+	left:0px;
+	top:2349px;
+	width:1px;
+	height:15px;
+}
+
+#shucai-24 {
+	position:absolute;
+	left:1px;
+	top:2349px;
+	width:1004px;
+	height:15px;
+}
+
+#shucai-25 {
+	position:absolute;
+	left:1005px;
+	top:2349px;
+	width:1px;
+	height:151px;
+}
+
+#shucai-26 {
+	position:absolute;
+	left:0px;
+	top:2364px;
+	width:1005px;
+	height:112px;
+}
+
+#shucai-27 {
+	position:absolute;
+	left:0px;
+	top:2476px;
+	width:1005px;
+	height:24px;
+}
+
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js,transport.js'}
+<div class="blank"></div>
+
+<div style='margin:0 auto;text-align:center;height:2500px;background: url("themes/365chi/images/topic/shucaibg.gif") repeat-x scroll 0 0 transparent;' class="clearfix">
+<div style="width:1006px;">
+<div id="Table_01">
+	<div id="shucai-01">
+		<img src="images/topic/shucai_01.jpg" width="1006" height="117" alt="">
+	</div>
+	<div id="shucai-02">
+		<img src="images/topic/shucai_02.jpg" width="1005" height="93" alt="">
+	</div>
+	<div id="shucai-03">
+		<img src="images/topic/shucai_03.jpg" width="1" height="1737" alt="">
+	</div>
+	<div id="shucai-04">
+		<img src="images/topic/shucai_04.jpg" width="1005" height="273" alt="">
+	</div>
+	<div id="shucai-05">
+		<img src="images/topic/shucai_05.jpg" width="1" height="154" alt="">
+	</div>
+	<div id="shucai-06">
+		<img src="images/topic/shucai_06.jpg" width="1004" height="46" alt="">
+	</div>
+	<div id="shucai-07">
+		<img src="images/topic/shucai_07.jpg" width="1004" height="108" alt="">
+	</div>
+	<div id="shucai-08">
+		<img src="images/topic/shucai_08.jpg" width="157" height="299" alt="">
+	</div>
+	<div id="shucai-09">
+		<img src="images/topic/shucai_09.jpg" width="281" height="255" alt="">
+	</div>
+	<div id="shucai-10">
+		<img src="images/topic/shucai_10.jpg" width="65" height="299" alt="">
+	</div>
+	<div id="shucai-11">
+		<img src="images/topic/shucai_11.jpg" width="85" height="287" alt="">
+	</div>
+	<div id="shucai-12">
+		<img src="images/topic/shucai_12.jpg" width="279" height="255" alt="">
+	</div>
+	<div id="shucai-13">
+		<img src="images/topic/shucai_13.jpg" width="138" height="287" alt="">
+	</div>
+	<div id="shucai-14">
+		<img src="images/topic/shucai_14.jpg" width="281" height="44" alt="">
+	</div>
+	<div id="shucai-15">
+		<img src="images/topic/shucai_15.jpg" width="279" height="32" alt="">
+	</div>
+	<div id="shucai-16">
+		<img src="images/topic/shucai_16.jpg" width="502" height="520" alt="">
+	</div>
+	<div id="shucai-17">
+		<img src="images/topic/shucai_17.jpg" width="503" height="508" alt="">
+	</div>
+	<div id="shucai-18">
+		<img src="images/topic/shucai_18.jpg" width="1" height="410" alt="">
+	</div>
+	<div id="shucai-19">
+		<img src="images/topic/shucai_19.jpg" width="502" height="410" alt="">
+	</div>
+	<div id="shucai-20">
+		<img src="images/topic/shucai_20.jpg" width="502" height="410" alt="">
+	</div>
+	<div id="shucai-21">
+		<img src="images/topic/shucai_21.jpg" width="503" height="495" alt="">
+	</div>
+	<div id="shucai-22">
+		<img src="images/topic/shucai_22.jpg" width="503" height="495" alt="">
+	</div>
+	<div id="shucai-23">
+		<img src="images/topic/shucai_23.jpg" width="1" height="15" alt="">
+	</div>
+	<div id="shucai-24">
+		<img src="images/topic/shucai_24.jpg" width="1004" height="15" alt="">
+	</div>
+	<div id="shucai-25">
+		<img src="images/topic/shucai_25.jpg" width="1" height="151" alt="">
+	</div>
+	<div id="shucai-26">
+		<a href="topic.php?topic_id=2>	<img src="images/topic/shucai_26.jpg" width="1005" height="112" alt=""> </a>
+	</div>
+	<div id="shucai-27">
+		<img src="images/topic/shucai_27.jpg" width="1005" height="24" alt="">
+	</div>
+</div>
+</div>
+</div>
+
+
+<div style="background-color:#f7f4eb;">
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div id="bottomNav" class="box">
+ <div class="box_1">
+  <div class="links clearfix">
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+    <!--结束图片类型的友情链接{/foreach}-->
+    <!-- {if $txt_links} -->
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] 
+    <!--结束文字类型的友情链接{/foreach}-->
+    <!-- {/if} -->
+  </div>
+ </div>
+</div>
+<!--{/if}-->
+<!--友情链接 end-->
+<div class="blank" style="background-color:#f7f4eb;" ></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+</body>
+</html>

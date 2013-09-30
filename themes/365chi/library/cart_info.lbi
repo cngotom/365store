@@ -1,0 +1,14 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<span class="join">最近加入的商品：</span>
+<ul class="shoplist">
+<!-- {foreach from=$goods_list item=goods} -->
+        <li>
+            <a class="pic" target="_blank" href="{$goods.url}"><img width="36" height="36" alt="{$goods.goods_name}" src="{$goods.goods_thumb}"></a>
+            <div class="info"><a target="_blank" href="{$goods.url}">{$goods.goods_name}</a></div><div class="Pinfo"><span class="price">{$goods.goods_price} * {$goods.goods_number}</span><a class="del" onclick="deleteCart({$goods.rec_id})" style="cursor:pointer">删除</a></div>
+        </li>
+     
+<!-- {/foreach} -->
+   <div class="full">
+        <span class="null">购物车中共有 <i>{$total.real_goods_count}</i> 种商品</span><a class="gocart" target="_blank" href="flow2.php?step=cart"><img src="http://img.kttps.com/Mall3/topbg12.gif"></a>
+    </div>
+</ul>

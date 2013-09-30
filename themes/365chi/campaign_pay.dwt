@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="js/style/validator.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="js/jquery.jqzoom.css">  
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,shopping_flow.js'}
+{insert_scripts files='common.js,transport.js,shopping_flow.js,region.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="blank"></div>
+<div class="block">
+<div class="flowBox" style="margin:30px auto 70px auto;">
+    <h2 style="text-align:center; height:30px; line-height:30px;">订单序列号: <font style="color:red">{$order.order_sn}</font></h2>
+    <table width="99%" align="center" border="0" cellpadding="15" cellspacing="0" bgcolor="#fff" style="border:1px solid #ddd; margin:20px auto;" >
+    <tr>
+        <td align="center" bgcolor="#FFFFFF">{$order.pay_desc}</td>
+    </tr>
+    <tr>
+        <td align="center" bgcolor="#FFFFFF">{$payment}</td>
+    </tr>
+    </table>
+
+    </div>
+</div>
+
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+</body>
+
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="js/uniform.default.css" />  
+<link href="user_center.css" rel="stylesheet" type="text/css" />
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,user.js,jquery-1.7.2.min.js,jquery.uniform.min.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="wrap box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+</div>
+<!--当前位置 end-->
+<div class="blank"></div>
+<div class="wrap clearfix">
+  <!--left start-->
+  <div class="AreaL">
+    <div class="box">
+     <div class="box_1">
+      <div class="userCenterBox">
+        <!-- #BeginLibraryItem "/library/user_menu.lbi" --><!-- #EndLibraryItem -->
+      </div>
+     </div>
+    </div>
+  </div>
+  <!--left end-->
+  <!--right start-->
+  <div class="AreaR">
+    <div class="box">
+     <div class="box_1">
+      <div class="clearfix" style="_height:1%;">
+          
+          <div class="item">
+        <div class="f_l fore">
+            <select id="ordertype" class="sele" name="">
+                <option value="0">所有时期</option>
+                <option value="1" >近一个月订单</option>
+                <option value="2">一个月前订单</option>
+              
+            </select>
+            <select id="orderstateselect" class="sele" name="">
+                <option value="0" >全部订单</option>
+                <option value="1">待确认订单</option>
+                <option value="2">已取消订单</option>
+                <option value="3">待评价订单</option>
+                 <option value="4">已完成订单</option>
+                 <option value="5">待付款订单</option>
+            </select>
+            <script type="text/javascript" language="javascript">
+ 
+                $("#orderstateselect").val({$order_status});
+                $("#ordertype").val({$time_type});
+                $("#ordertype").change(function () {
+                    var otype = $("#ordertype").val();
+                     window.location = '/user.php?act=order_list&time_type=' + otype;     
+                });
+
+
+                $("#orderstateselect").change(function() {
+                    var ostype =$("#orderstateselect").val();
+                    window.location = '/user.php?act=order_list&order_status=' + ostype;             
+                });
+
+                
+                
+            </script>
+        </div>
+              <!--
+        <div class="f_r">
+            <input id="ip_keyword" name="" type="text" class="text" value="商品名称、商品编号、订单编号" onfocus="if (this.value==this.defaultValue)this.value=''" onblur="if (this.value=='') this.value=this.defaultValue">
+            <input type="button" value="查 询" class="bti" >
+        </div> -->
+        <div class="clearfix">
+        </div>
+    </div>
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+           <div class="blank"></div>
+       <table width="100%" border="0" cellpadding="5" cellspacing="0" class='order_list_table'>
+          <tr align="center">
+             <th width="12%">订单编号</th>
+              <th width="28%">订单商品</th>
+              <th width="10%">收货人</th>
+              <th width="12%">订单金额</th>
+              <th width="12%">下单时间</th>
+              <th width="12%">订单状态</th>
+              <th width="14%">操作</th>
+          </tr>
+          <!--{foreach from=$orders item=item}-->
+          <tr>
+            <td align="center"><a href="user.php?act=order_detail&order_id={$item.order_id}" class="f6">{$item.order_sn}</a></td>
+            <td align="center" >{$item.goods_info}</td>
+            <td align="center" >{$item.consignee}</td>
+            <td align="right" >{$item.total_fee}</td>
+            <td align="center" > <span class="ftx-03"> {$item.order_time} </span></td>
+            <td align="center" ><span class="ftx-03">{$item.order_status} </span></td>
+            <td align="center"><font class="ftx-04">{$item.handler}</font></td>
+          </tr>
+          <!--{/foreach}-->
+          <!-- {if $statics} -->
+          <tr>
+              <td colspan="7" class="td-03" align="right"><div class="ar ftx-03"> <!-- 待付款：<strong id="noPayCount" class="ftx-01">{$statics.paying}</strong>&nbsp;&nbsp;-->
+                  待处理：<strong id="noFinishCount" class="ftx-01">{$statics.unhandled}</strong>&nbsp;&nbsp;
+                  已完成：<strong id="finishedCount" class="ftx-01">{$statics.completed}</strong>&nbsp;&nbsp;
+                  已取消：<strong id="cancelCount" class="ftx-01">{$statics.canceled}</strong>&nbsp;&nbsp;
+                  待确认：<strong id="cancelCount" class="ftx-01">{$statics.confirming}</strong>&nbsp;&nbsp;
+                  待评论：<strong id="cancelCount" class="ftx-01">{$statics.commenting}</strong>&nbsp;&nbsp;
+               <!--   订单总数：<strong id="totalCount" class="ftx-01">{$statics.total}</strong>&nbsp;&nbsp;  --></div></td>
+            </tr>
+         <!--  {/if} -->
+          </table>
+       <div class="blank5"></div>
+      
+      </div>
+     </div>
+    </div>
+        <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+  </div>
+  <!--right end-->
+</div>
+<div class="blank"></div>
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+</body>
+<script type="text/javascript">
+{foreach from=$lang.clips_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+
+$(function(){
+        $("input, textarea").uniform();
+      });
+
+</script>
+</html>
+          
+          

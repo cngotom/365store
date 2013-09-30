@@ -1,0 +1,3 @@
+1 修改数据库某些表为 innodb 类型
+
+2 修改index.php 中 加入ROOT_PATH定义

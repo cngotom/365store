@@ -1,0 +1,279 @@
+{* TitlePicWidth: 2 *}
+{* TitlePicHeight: 38 *}
+
+{* 说明：$title_pic，分类标题图片地址； *}
+{* 说明：$base_style，基本风格样式颜色； *}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$topic.title}_{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="/themes/365chi/index.css" rel="stylesheet" type="text/css" />
+<link href="/themes/365chi/topic/css/gouwuka.css" rel="stylesheet" type="text/css" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+{if $topic.css neq ''}
+<style type="text/css">
+  {$topic.css}
+</style>
+{/if}
+<style type="text/css">
+
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js,transport.js,helper.js'}
+<div class="blank"></div>
+
+
+
+<div id="topic_content">
+    <a name="gototop"></a>
+    <div class="top">
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/1.gif" /></div>
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/2.gif" /></div>
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/3.gif" /></div>
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/4.gif" /></div>
+        <div class="tit clear"><img src="themes/365chi/topic/images/gouwuka/5.gif" /></div>
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/6.gif" /></div>
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/7.gif" /></div>
+        <div class="tit"><img src="themes/365chi/topic/images/gouwuka/8.gif" /></div>
+    </div>    
+    <div class="meishi" >
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/9.gif" /></div>
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/10.gif" /></div>
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/11.gif" /></div>
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/12.gif" /></div>
+        <div class="meishi_x clear"><img src="themes/365chi/topic/images/gouwuka/13.gif" /></div>
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/14.gif" /></div>
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/15.gif" /></div>
+        <div class="meishi_x"><img src="themes/365chi/topic/images/gouwuka/16.gif" /></div>
+        <div style="display:none;position: fixed; top:40%;left:90%;_position:absolute;left:expression(eval(document.documentElement.scrollLeft+1140));top:expression(eval(document.documentElement.scrollTop-400))">
+            <div>
+               <img src="themes/365chi/topic/images/gouwuka/r1.jpg" />
+            </div>
+            <div>
+                <a href="#meishi"><img src="themes/365chi/topic/images/gouwuka/r2.jpg" /></a>
+            </div>
+            <div>
+                <a href="#ka365"><img src="themes/365chi/topic/images/gouwuka/r3.jpg" /></a>
+            </div>
+            <div>
+                <a href="#shengxian"><img src="themes/365chi/topic/images/gouwuka/r4.jpg" /></a>
+            </div>
+            <div>
+                <a href="#gototop"><img src="themes/365chi/topic/images/gouwuka/r5.jpg" /></a>
+            </div>
+            
+        </div>
+        <a name="meishi"></a>
+        <div class="ka_area clear">
+            <!--{foreach from=$top_goods item=ids name=father}--> 
+                <div class="ka_row clear"       <!-- {if !$smarty.foreach.father.first} -->  style="margin-top: 12px;"  <!-- {/if} -->  >    
+                <!--{foreach from=$ids item=top_id name=child}-->
+                    <!-- {if $smarty.foreach.child.first} -->
+                    <div class="ka_h" style="margin-left:28px; _margin-left:14px;">
+                    <!-- {else} -->
+                    <div class="ka_h" style="margin-left:13px;">
+                    <!-- {/if} -->
+                        <div class="ka_t"></div>
+                        <div class="ka_c">
+                            <a href="{$top_id.url}"><img  src="{$top_id.goods_thumb}" /></a>
+                        </div>
+                        <div class="price">
+                            <div class="n_p"> {  $top_id.short_name }</div>
+                            <div class="fl">
+                                <div style="margin-left: 18px; line-height: 20px;"><span>面值:</span>{ $top_id.market_price}元</div>
+                                <div style="margin-left: 18px;"><span style="color: red;">售价:</span>{$top_id.shop_price}</div>
+                            </div>
+
+                            <div class="buy">
+                                <span > <a  href="javascript:void(0)" onclick="simpleAddToCart({$top_id.goods_id},'show_success_tips_{$top_id.goods_id}')" >立即<br>购买</a> </span>
+                            </div>
+                            <div style="display: none;background-color: green;position: absolute;bottom: 10px;left: 10px;z-index: 1000;color: white;" id="show_success_tips_{$top_id.goods_id}"  ><span>该商品已经被添加到购物车里面</span></div> 
+                        </div>
+                        <div class="city"></div>
+                    </div>
+                <!--{/foreach}-->  
+                </div>     
+            <!-- {/foreach} -->       
+        </div>     
+        <div class="bottom">
+            <div  class="more" style="position: absolute; top:-80px;left: 1120px;">
+                <a href="category.php?id=371"><br>更<br>多<br>超<br>市</a>
+            </div>
+        </div>
+    </div>
+    <div  class="meishi" style=" padding-left: 128px;"><img src="themes/365chi/topic/images/gouwuka/83.gif" /></div>
+    <div class="meishi">
+        <div class="ka365_x"><img src="themes/365chi/topic/images/gouwuka/17.gif" /></div>
+        <div class="ka365_x"><img src="themes/365chi/topic/images/gouwuka/18.gif" /></div>
+        <div class="ka365_x"><img src="themes/365chi/topic/images/gouwuka/19.gif" /></div>
+        <div class="ka365_x"><img src="themes/365chi/topic/images/gouwuka/20.gif" /></div>
+        <a name="ka365"></a>
+        <div class="ka_area clear">
+        <div class="ka_row clear">
+             <!--{foreach from=$center_goods item=top_id name=child}-->
+                    <!-- {if $smarty.foreach.child.first} -->
+                    <div class="ka_h" style="margin-left:28px; _margin-left:14px;">
+                    <!-- {else} -->
+                     <div class="ka_h" style="margin-left:13px;">
+                    <!-- {/if} -->
+                            <div class="ka_t"></div>
+                        <div class="ka_c2">
+                            <a href="{$top_id.url}"> <img src="{$top_id.goods_thumb}" /></a>
+                        </div>
+                        <div class="price">
+                            <div class="n_p"> {  $top_id.short_name }</div>
+                            <div style="margin-left: 18px; margin-top: 8px;"><span>价格： {$top_id.shop_price}</span></div>
+
+                            <div class="buy">
+                                <span > <a  href="javascript:void(0)" onclick="simpleAddToCart({$top_id.goods_id},'show_success_tips_{$top_id.goods_id}')" >立即<br>购买</a> </span>
+                            </div>
+                              <div style="display: none;background-color: green;position: absolute;bottom: 10px;left: 10px;z-index: 1000;color: white;" id="show_success_tips_{$top_id.goods_id}"  ><span>该商品已经被添加到购物车里面</span></div> 
+                        </div>
+                        <div class="city"></div>
+                    
+                     </div>
+                <!--{/foreach}-->   
+        </div>
+         </div>
+        <div class="bottom">
+           <div  class="more" style="position: absolute; top:-80px;left:1120px;">
+                <a href="category.php?id=371"><br>更<br>多<br>卡<br>券</a>
+            </div>
+        </div>
+    </div>
+
+    <div  class="meishi" style=" padding-left: 128px;"><img src="themes/365chi/topic/images/gouwuka/83.gif" /></div>
+    <div class="meishi">
+        <div class="xian"><img src="themes/365chi/topic/images/gouwuka/21.gif" /></div>
+        <div class="xian"><img src="themes/365chi/topic/images/gouwuka/22.gif" /></div>
+        <div class="xian"><img src="themes/365chi/topic/images/gouwuka/23.gif" /></div>
+        <div class="xian"><img src="themes/365chi/topic/images/gouwuka/24.gif" /></div>
+        <a name="shengxian"></a>
+        <div class="ka_area clear">
+        <div class="ka_row clear">
+           <!--{foreach from=$bottom_goods item=top_id name=child}-->
+                    <!-- {if $smarty.foreach.child.first} -->
+                    <div class="ka_h" style="margin-left:28px; _margin-left:14px;">
+                    <!-- {else} -->
+                     <div class="ka_h" style="margin-left:13px;">
+                    <!-- {/if} -->
+                            <div class="ka_t"></div>
+                        <div class="ka_c2">
+                            <a href="{$top_id.url}"> <img src="{$top_id.goods_thumb}" /></a>
+                        </div>
+                        <div class="price">
+                            <div class="n_p"> {  $top_id.short_name }</div>
+                            <div style="margin-left: 18px; margin-top: 8px;"><span>价格： {$top_id.shop_price}</span></div>
+
+                            <div class="buy">
+                                <span > <a href="javascript:void(0)" onclick="simpleAddToCart({$top_id.goods_id},'show_success_tips_{$top_id.goods_id}')" >立即<br>购买</a> </span>
+                            </div>
+                              <div style="display: none;background-color: green;position: absolute;bottom: 10px;left: 10px;z-index: 1000;color: white;" id="show_success_tips_{$top_id.goods_id}"  ><span>该商品已经被添加到购物车里面</span></div> 
+                        </div>
+                        <div class="city"></div>
+                    
+                     </div>
+                <!--{/foreach}--> 
+         </div>
+        </div>
+        <div class="bottom">
+             <div  class="more" style="position: absolute; top:-80px;left: 1120px;">
+                <a href="category.php?id=292"><br>更<br>多<br>生<br>鲜</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+</body>
+    
+<script language="javascript">
+    
+    var startHour = 10;
+    var startMin = 30;
+    var timer ;
+    function miaosha(){
+        
+        var today=new Date(); 
+        var h=today.getHours(); 
+         var m=today.getMinutes(); 
+        if( (h < startHour )|| ( h == startHour && m < startMin) )
+        {
+           alert('活动还未开始');
+           return;
+        }
+        
+        if(!GUserInfo.isLogin)
+         {
+             GUserInfo.runCode = "window.location.href = 'campaign.php'";
+             show_login_dialog();
+         }
+        else{
+           window.location.href = 'campaign.php'
+        }
+    }
+    
+
+    $(function(){
+        
+       timer = setInterval( function(){
+            var today=new Date(); 
+            var h=today.getHours(); 
+            var m=today.getMinutes(); 
+            var s=today.getSeconds(); 
+
+
+             if( (h == startHour -1  )|| ( h == startHour && m < startMin) )
+            {
+                var leftS = 60 - s;
+                var leftM =  (startHour-h)*60 + (startMin-1 -m);
+
+
+                $('#minute1').html(  leftM.toString().substr(0, 1) );
+                $('#minute2').html( leftM.toString().substr(1, 1));
+                $('#second1').html(leftS.toString().substr(0, 1));
+                $('#second2').html(leftS.toString().substr(1, 1));
+            }
+            else{
+                $('#minute1').html('0');
+                $('#minute2').html('0');
+                $('#second1').html('0');
+                $('#second2').html('0');
+                
+                clearInterval(timer);
+
+            }
+        },1000);
+    });
+
+</script>
+</html>

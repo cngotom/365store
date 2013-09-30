@@ -1,0 +1,81 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<table cellspacing="0" border="0" width="100%">
+
+<tbody><tr>
+    <td align="right" width="85" valign="middle"><font color="red">*</font>收货人姓名：</td>
+    <td align="left" valign="middle">
+        <input type="text" onblur="check_addressName()" value="{$consignee.consignee|escape}" maxlength="20" class="txt" id="consignee_consignee">&nbsp;
+    </td>
+</tr>
+
+ 
+  <tr >
+      
+   <td align="right" valign="middle"><font color="red">*</font>省&#12288;&#12288;份：</td>
+    <td align="left" valign="middle">
+   <span id="consignee_arae">
+        <select name="country" id="consignee_country" onchange="region.changed(this, 1, 'consignee_province');showAreaInfo();" style="border:1px solid #ccc;display: none;">
+            <option value="1">{$lang.please_select}{$name_of_region[0]}</option>
+            <!-- {foreach from=$country_list item=country} -->
+            <option value="{$country.region_id}" {if $consignee.country eq $country.region_id}selected{/if}>{$country.region_name}</option>
+            <!-- {/foreach} -->
+        </select>
+        <select name="province" id="consignee_province" onchange="region.changed(this, 2, 'consignee_city');showAreaInfo();" style="border:1px solid #ccc;">
+            <option value="0">{$lang.please_select}{$name_of_region[1]}</option>
+            <!-- {foreach from=$province_list item=province} -->
+            <option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+            <!-- {/foreach} -->
+        </select>
+        <select name="city" id="consignee_city" onchange="region.changed(this, 3, 'consignee_district');showAreaInfo();" style="border:1px solid #ccc;">
+            <option value="0">{$lang.please_select}{$name_of_region[2]}</option>
+            <!-- {foreach from=$city_list item=city} -->
+            <option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+            <!-- {/foreach} -->
+        </select>
+        <select name="district" id="consignee_district" style="border:1px solid #ccc;" onchange="showAreaInfo();">
+            <option value="0">{$lang.please_select}{$name_of_region[3]}</option>
+            <!-- {foreach from=$district_list item=district} -->
+            <option value="{$district.region_id}" {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+            <!-- {/foreach} -->
+        </select>
+      </span>      
+      &nbsp;&nbsp;注:标“*”的为支持货到付款的地区</td>
+  </tr>
+
+<tr>
+    <td align="right" valign="middle"><font color="red">*</font>地&#12288;&#12288;址：</td>
+    <td align="left" valign="middle">
+        <span id="consigneeShow_addressName"></span>
+        <input type="text" onblur="check_address()" value="{$consignee.address|escape}" style="margin-left:2px;width:327px" maxlength="50" class="txt" id="consignee_address">&nbsp;
+    </td>
+</tr>
+
+<tr>
+    <td align="right" valign="middle"><font color="red">*</font>手机号码：</td>
+    <td align="left" valign="middle">
+        <input type="text" onblur="check_message()" value="{$consignee.mobile|escape}" class="txt" id="consignee_mobile"> &nbsp;或者 固定电话： <input type="text" onblur="check_phone()"  value="{$consignee.tel|escape}" class="txt" id="consignee_tel">&nbsp;<font color="#000000">用于接收发货通知短信及送货前确认</font>
+    </td>
+</tr>
+
+
+<tr>
+    <td align="right" valign="middle">电子邮件：</td>
+    <td align="left" valign="middle">
+        <input type="text" onblur="check_email()" value="{$consignee.email|escape}" class="txt" id="consignee_email"> &nbsp;<font color="#000000">用来接收订单提醒邮件，便于您及时了解订单状态</font>
+    </td>
+</tr>
+
+
+<tr>
+    <td align="right" valign="middle">邮政编码：</td>
+    <td align="left" valign="middle">
+         <input type="text" onblur="check_zipecode()" value="{$consignee.zipcode|escape}" style="width:77px" class="txt"  id="consignee_zipcode">&nbsp;<font color="#000000" style="margin-left:53px">有助于快速确定送货地址</font>
+     </td>
+</tr>
+
+
+
+
+
+</tbody></table>

@@ -1,0 +1,60 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $is_index} -->
+<div class="chart fl">
+    <div class="chart_b">本月销售排行</div>
+    <div class="chart_c">
+        <ul>
+              <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+                {if $smarty.foreach.top_goods.index <5 }
+             <li>
+                <div class="fl"> <img src="themes/365chi/images/green/index/{$smarty.foreach.top_goods.iteration}.gif" />&nbsp;<a href="{$goods.url}"><img  width="30px" height="40px" src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></div> <div  class="chart_w fl" ><a href="{$goods.url}">{$goods.short_name|escape:html}<br>{$goods.price}</a></div> 
+            </li>
+                {/if}
+           <!-- {/foreach} -->
+        </ul>
+
+    </div>
+
+</div>
+<div class="chart fl">
+    <div class="chart_b">本周销售排行</div>
+    <div class="chart_c" >
+        <ul>
+            <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+             {if $smarty.foreach.top_goods.index <5 }
+             <li>
+                <div class="fl"> <img src="themes/365chi/images/green/index/{$smarty.foreach.top_goods.iteration}.gif" />&nbsp;<a href="{$goods.url}"><img  width="30px" height="40px" src="{$goods.thumb}" alt="{$goods.name|escape:html}" /></a></div> <div  class="chart_w fl" ><a href="{$goods.url}">{$goods.short_name|escape:html}<br>{$goods.price}</a></div> 
+            </li>
+            {/if}
+           <!-- {/foreach} -->
+
+        </ul>
+
+    </div>
+</div>
+<!-- {else} -->
+<div class="box">
+     <div class="mt"><span>销售排行</span></div>
+  <div class="mc clearfix boxCenterList ">
+  <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+  <ul class="clearfix">
+      <!-- {if $smarty.foreach.top_goods.iteration<6}-->
+	<!-- {if $smarty.foreach.top_goods.iteration<6}-->
+      <li class="goodsimg">
+      <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="samllimg" /></a>
+      </li>
+	<!-- {/if} -->		
+      <li {if $smarty.foreach.top_goods.iteration<6}class="iteration1"{/if}>
+      <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a><br />
+      {$lang.shop_price}<font class="f1">{$goods.price}</font><br />
+      </li>
+      <!-- {/if} -->	
+    </ul>
+  <!-- {/foreach} -->
+  </div>
+ </div>
+<div class="blank5"></div>
+
+
+
+<!-- {/if} -->

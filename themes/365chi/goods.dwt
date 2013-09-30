@@ -1,0 +1,414 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="themes/365chi/common.css" rel="stylesheet" type="text/css" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="js/style/validator.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="js/jquery.jqzoom.css">  
+<link href="themes/365chi/goods.css" rel="stylesheet" type="text/css" />
+
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<script type="text/javascript">
+
+<!-- {literal} -->
+$(function() {
+   //  $( "#sameclass" ).tabs();
+   //  $( "#detailarea" ).tabs();
+     
+     doTabs('#sameclass');
+     doTabs('#detailarea');
+     
+     function doTabs(id)
+     {
+         //default
+         $(id+'>div').hide();
+         $(id+'>div:first').show();
+         $(id+'>ul>li:first').addClass('ui-state-active');
+         
+         
+         //onclick
+         $(id+'>ul a').each(function(index,ele){
+             $(ele).click(function(){
+                 
+                    $(id+'>ul>li').removeClass('ui-state-active');
+                    $(id+'>div').hide();
+
+                    $(ele).parent().addClass('ui-state-active');
+                    var divid = $(ele).attr('alink');
+                    $(divid).show();
+ 
+             })
+            
+             
+         });
+         
+     }
+});
+<!-- {/literal} -->
+</script>
+<!--当前位置 start-->
+<div class="wrap box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+</div>
+{insert_scripts files='jquery.jqzoom-core-pack.js,formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js'}
+<!--当前位置 end-->
+
+
+<div class="blank"></div>
+
+  <div class="detail clearfix"> 
+       <!---------商品详情页左侧开始-------->
+       <div class="detail_l fl">
+           <div class="detail_bg">欢迎光临365商城</div>
+           <div class="service">
+                <a class="s1 fl"  href="">满百包邮</a>
+                <a class="s2 fl"  href="">正品保障</a>
+                <a class="s3 fl"  href="">售后无忧</a>
+           </div>
+           <div class="sameclass" id="sameclass">
+               <ul class="sameclass_np" >
+                   <li class="fl"><a  alink="#sameclass-tabs-1" class="sameclass_n" href="javascript:void(0)" >同价格</a></li>
+                   <li class="fl"><a  alink="#sameclass-tabs-2" class="sameclass_n"  href="javascript:void(0)" >同产地</a></li>
+               </ul>
+               
+ 
+               <!-----------同价格产品开始------------>
+               <div class="sameclass_c" id="sameclass-tabs-1">
+                   <ul>
+                    <!-- {foreach from=$same_price item=linked_goods_data name=foo} -->
+                    {if $smarty.foreach.foo.index <=4}            
+                    <li class="s{$smarty.foreach.foo.iteration}">
+                        <div  class="fl"><a href="{$linked_goods_data.url}"><img width="36" height="48" src="{$linked_goods_data.goods_thumb}" /></a></div>
+                        <div style="width: 100px; float: right;">
+                            <a href="{$linked_goods_data.url}">{$linked_goods_data.short_name|escape:html}<br><span style="color: red;">{$linked_goods_data.shop_price}&nbsp;&nbsp;</span><del>{$linked_goods_data.market_price}</del></a>
+
+                        </div>
+                    </li>  
+                    {/if}    
+                    <!-- {/foreach} -->      
+                   </ul>
+               </div>
+               <!-----------同价格产品结束------------>
+               
+               
+                <!-----------同分类产品开始------------>
+               <div class="sameclass_c" id="sameclass-tabs-2">
+                   <ul>
+                       <!-- {foreach from=$same_area.goods item=linked_goods_data name=foo} -->
+                      {if $smarty.foreach.foo.index <=4}            
+                       <li class="s{$smarty.foreach.foo.iteration}">
+                           <div  class="fl"><a href="{$linked_goods_data.url}"><img width="36" height="48" src="{$linked_goods_data.goods_thumb}" /></a></div>
+                           <div style="width: 100px; float: right;">
+                               <a href="{$linked_goods_data.url}">{$linked_goods_data.short_name|escape:html}<br><span style="color: red;">{$linked_goods_data.shop_price}&nbsp;&nbsp;</span><del>{$linked_goods_data.market_price}</del></a>
+                                    
+                           </div>
+                       </li> 
+                       {/if}
+                        <!-- {/foreach} -->
+                  
+                   </ul>
+               </div>
+               <!-----------同分类产品结束------------>
+               
+           </div>
+           <div class="relate">
+               
+               <div class="relate_b">相关分类</div>
+               <!-- {foreach from=$cat_categories item=cat name=foo} -->
+                {if $smarty.foreach.foo.index %2 eq 0}  
+                <div> 
+                     
+                {/if}    
+                    <span><a href="{$cat.url}">{$cat.name}</a></span>
+                {if $smarty.foreach.foo.last &&  $smarty.foreach.foo.index %2 eq 0}    
+                 </div>
+                {/if}
+                
+                        
+               {if $smarty.foreach.foo.index %2 neq 0}       
+                </div> 
+               {/if}
+               <!-- {/foreach} -->      
+              
+               
+               
+           </div>
+           
+           <div class="relate">
+               <div class="relate_b">浏览历史</div>
+               <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+           </div>
+           <!--
+           <div class="relate2">
+               <div class="relate_b">推荐产品</div>
+               <div style=" height: 60px;margin-left: 10px;margin-top: 10px; margin-bottom: 10px;">
+                   <div  class="fl"  style="width: 50px;border: 1px solid #c7c7c7;padding: 5px; text-align: center;"><a href="#"><img height="48" src="themes/365chi/images/goods/4.gif" /></a></div>
+                    <div style="width: 100px; float: right; margin-top: 10px;">
+                        <span><a>北大荒麦香拉面</a><br></span>
+                        <span style="color: red;">￥4.0&nbsp;&nbsp;</span><span><del>￥4.8</del></span>
+                    </div> 
+               </div>
+               
+           </div>
+           <div class="detail_ad">
+               <img src="images/lunbo_b22.jpg"></img>
+           </div>
+           <div class="detail_ad">
+               <img src="images/lunbo_b23.jpg"></img>
+           </div>
+           <div class="detail_ad">
+               <img src="images/lunbo_b24.jpg"></img>
+           </div>
+           -->
+       </div>
+   
+      <!---------商品详情页右侧商品信息开始-------->
+       <div class="detail_r fr ">
+           <div class="d_s_n">{$goods.goods_name|escape:html}</div>
+           <div  class="d_s_p fl">
+               
+               <div class="d_s_pb">
+                    <a id="idgoodsimgsrc" class="jqzoom"  rel='gal1' href="{$first_original}" onclick="window.open('gallery.php?id={$goods.goods_id}'); return false;"> 
+                        <!-- {if $pictures}-->
+                              <img  id="idgoodsimg" width="320px" height="320px" src="{$first_goodsimg}" alt="{$goods.goods_name|escape:html}" />
+                        <!-- {else} -->
+                              <img src="{$first_goodsimg}"  width="320px" height="320px" alt="{$goods.goods_name|escape:html}"/>
+                        <!-- {/if}-->
+                    </a>
+               </div>
+             <div class="blank5"></div>  
+            <!--相册 START--> 
+                <!-- #BeginLibraryItem "/library/goods_gallery.lbi" --><!-- #EndLibraryItem -->
+            <!--相册 END-->
+           </div>
+          <form action="javascript:addToCart({$goods.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >
+
+           <div class="d_s_info fr">
+               <table>
+                   <tr>
+                       <td>本店价格：</td><td width="135" style="color: red; font-size: 24px;" >{$goods.shop_price_formated}</td>
+                   </tr>
+                     <!--{if 0 and $goods.is_promote and $goods.gmt_end_time } 促销-->
+                    {insert_scripts files='lefttime.js'}
+                     <tr>
+                       <td>{$lang.promote_price}：</td><td width="135" style="color: red; font-size: 24px;" >{$goods.promote_price}</td>
+                    </tr>
+                     <tr>
+                       <td>{$lang.residual_time}：</td><td width="135" style="color: red; font-size: 24px;" ><font class="shop" id="leftTime">{$lang.please_waiting}</font></td>
+                    </tr>
+                    <!--{/if}-->
+                   <tr>
+                       <td>市场价格：</td><td>{$goods.market_price}</td>
+                       <td>  保质期：</td><td> {if $pro_baozhi}{$pro_baozhi} {/if} </td>
+                   </tr>
+                   <tr>
+                       <td>品&nbsp;&nbsp;&nbsp;&nbsp;牌：</td><td>{$goods.goods_brand}</td>
+                       <td>库存状况：</td><td>现货</td>
+                   </tr>
+                   <tr> 
+                       <td>规&nbsp;&nbsp;&nbsp;&nbsp;格：</td> <td>  {if $pro_guige} {$pro_guige}   {/if}</td>
+                       <td>支付方式：</td><td>网上支付、银行付款</td> 
+                   </tr>
+                   <tr>
+                       <td>产&nbsp;&nbsp;&nbsp;&nbsp;地：</td><td> {if $pro_baozhi}{$pro_chandi} {/if}</td>
+                       <td>商品货号：</td><td>{$goods.goods_sn}  </td>
+                   </tr>
+           
+               </table>   
+               
+               <table class="share">
+                   <tr class="bg">
+                       <td>分享到：</td>
+                       <td>
+                          <a href="javascript:void(0);" onclick="UI.Share.qqT();" class="s1 fl">
+                </a><a href="javascript:void(0);" onclick="UI.Share.renren();" class="s2 fl"></a>
+                <a href="javascript:void(0);" onclick="UI.Share.sinaT();" class="s3 fl"></a><a href="javascript:void(0);" onclick="UI.Share.kaixin();" class="s4 fl"></a>
+                <a href="javascript:void(0);" onclick="UI.Share.qqZone();" class="s5 fl"></a><a href="javascript:void(0);" onclick="UI.Share.sohuT();" class="s6 fl"></a>
+                       </td>
+                   </tr>
+                   <tr class="bg" ><td>
+                        {$lang.amount}：</td><td><font id="ECS_GOODS_AMOUNT" class="shop"> {$goods.shop_price_formated}</font><td>
+                   </tr>
+               </table>
+               <div class="jiesuan">
+                   <div class="jiesuan_row1">
+                       <span>购买数量：</span> <span class="jia" id="jian">-</span> <input name="number" type="text" id="number" value="1" size="2" onblur="changePrice()" style="border:1px solid #ccc; "/>
+<span class="jia" id="jia">+</span>
+                     <!-- {if $goods.give_integral > 0}-->  <span class="bg"><a class="s7"></a></span> <span>购买此商品 赠送{$goods.give_integral} {$points_name}</span><!-- {/if}-->
+                   </div>
+                   <div class="jiesuan_row2" id="gwc">
+                       <span class="bg"><a class="s8" href="javascript:buyGoods({$goods.goods_id})"></a></span>
+                       <span class="bg"><a class="s9" href="javascript:addToCart({$goods.goods_id})"></a></span>
+                       <span class="bg"><a class="s10" onclick="javascript:collect({$goods.goods_id});" ></a></span>
+                       <span>(人气{$goods.click_count})<br></span>
+                     
+                   </div>
+               </div>
+               
+               
+           </div>
+          </form>
+           <div class="clear"></div>
+           <!-- {if $bought_goods} -->
+           <div class="others_like">
+               <div class="bg_grey">购买本商品的用户还买过</div>
+               <ul>
+                     <!--{foreach from=$bought_goods item=goods name=foo}-->
+                       {if $smarty.foreach.foo.index <= 4}
+                            <li>
+                                <div class="sales_list">
+                                    <div><a href="{$goods.url}"><img src="{$goods.goods_thumb}" height="100px"  alt="{$goods.goods_name|escape:html}"/></a></div>
+                                        <div class="sales_info1">
+                                            <span><a href="{$goods.url}">{$goods.short_name|escape:html} </a></span>
+                                        </div>
+                                        <div class="sales_info2">
+                                            <span style="color: red;font-size: 20px;">{$goods.shop_price}</span>
+                                        </div>
+                                        <div class="sales_info1">
+                                            <span class="bg"><a  onclick="javascript:addToCart({$goods.goods_id})" class="s11"></a></span>
+                                        </div>
+                                    </div>    
+                            </li>
+                       {/if}
+                    <!--{/foreach}-->
+               </ul>
+               
+           </div>
+           <!--{/if}-->
+           <div class="detailtext" id="detailarea"> 
+               <ul class="clearfix">
+                   <li class="bg_detail fl"><a class="ss1"  href="javascript:void(0)"   alink="#area-goods-desc">商品介绍</a></li>
+                   <li class="bg_detail fl"><a class="ss2"  href="javascript:void(0)"  alink="#area-goods-comments">商品评价({$comment_count})</a></li>
+                   <li class="bg_detail fl"><a class="ss1"  href="javascript:void(0)"  alink="#area-how-buy">如何购买</a></li>
+               </ul> 
+              
+               
+               <!----- 以下3个div分别为商品描述、评价和如何购买界面 ------->
+               <div class="describe_text" id="area-goods-desc">
+                  {$goods.goods_desc}
+               </div>
+               <div class="describe_text" id="area-goods-comments" >
+                   <!-- #BeginLibraryItem "/library/comments.lbi" --><!-- #EndLibraryItem -->
+               </div>
+                   
+                <div class="pj_content describe_text" id="area-how-buy">
+                        </p> <img src="themes/365chi/images/green/howtopay.jpg" /></p>
+                        <p>  <img src="themes/365chi/images/green/howtobuy.jpg" /></p>
+
+                </div>
+
+                   
+               </div>
+           </div>
+           
+           
+       </div>   
+      <!---------商品详情页右侧商品信息结束-------->
+   
+      
+   </div>
+   
+   <!-------------------------------------------------主题内容结束-------------------------------------------------->
+
+
+
+
+
+
+<div class="blank5"></div>
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+
+</body>
+<script type="text/javascript">
+var goods_id = {$goods_id};
+var goodsattr_style = {$cfg.goodsattr_style|default:1};
+var gmt_end_time = {$promote_end_time|default:0};
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var goodsId = {$goods_id};
+var now_time = {$now_time};
+
+<!-- {literal} -->
+$(function(){
+      $(".jqzoom").jqzoom({
+            zoomWidth: 320,
+            zoomHeight: 320,
+            preloadText: '图片加载中...',
+            title:false,
+            alwaysOn:false,  
+            preloadImages: false,  
+            showEffect:'fadein',
+            fadeinSpeed:'fast' 
+        });
+        $('#jia').click(function(){
+             var number = parseInt( $('#number').val() );
+             number += 1;      
+             $('#number').val(number);
+             changePrice();  
+        });
+        
+        $('#jian').click(function(){
+             var number = parseInt( $('#number').val() );
+             number -= 1;
+             if(number <= 0 )
+                 number = 1;
+             $('#number').val(number);
+             changePrice();  
+        });
+     
+});
+
+
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice()
+{
+  //属性暂时不可用
+  var attr = 0;
+  var qty =  parseInt( $('#number').val() );
+
+  $.get('goods.php','act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'JSON');
+
+}
+
+/**
+ * 接收返回的信息
+ */
+function changePriceResponse(res)
+{
+  if (res.err_msg.length > 0)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+      $('#ECS_GOODS_AMOUNT').html( res.result );
+  }
+}
+
+<!-- {/literal} -->
+</script>
+</html>

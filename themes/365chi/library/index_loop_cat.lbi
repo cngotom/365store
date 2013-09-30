@@ -1,0 +1,218 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{foreach from=$index_loop_cat item=loop_cat name=foo}
+ {if  $smarty.foreach.foo.index < 2}
+<div class="mmly one_column">
+        <div  class="classname">{$loop_cat.name}</div>
+        
+        <div class="fl">
+            <!-- 黄色水平线-->
+            <div>
+                <div style="clear: left;height:8px; line-height:8px; width:879px;  background-color:#67AB27;  "> &nbsp;</div>
+            </div>
+            <div class="class_menu">
+                <ul>
+                    {foreach from=$loop_cat.child_cates item=cate name=boo}
+                       <li><a href="{$cate.url}" cat_id="{$cate.id}" index="{$smarty.foreach.boo.index}">&nbsp;{$cate.name} &nbsp;</a></li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+        
+        <div class="clear"></div>
+        <!-- div重复5次 -->
+        <div class="sales cur">
+           {foreach from=$loop_cat.cate_goods item=goods  name=child}
+           {if  $smarty.foreach.child.index < 4 }
+             <div class="sales_h"    {if  $smarty.foreach.child.first }   style="border-left:1px solid #d7d7d7;" {/if}>
+                 <a  href="{$goods.url}"><img width="135" height="135" src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a>
+                 <span><a  href="{$goods.url}">{$goods.short_name}</a></span>
+                  <span style="color:#cf2424; "><h1>￥{$goods.price}</h1></span>
+             </div>
+           {/if}
+          {/foreach}   
+        </div>
+        <!--二级分类商品 -->
+         {foreach from=$loop_cat.child_cat_goods item=child_goods }
+        <div class="sales">
+           {foreach from=$child_goods item=goods  name=child}
+           {if  $smarty.foreach.child.index < 4 }
+             <div class="sales_h"    {if  $smarty.foreach.child.first }   style="border-left:1px solid #d7d7d7;" {/if}>
+                 <a  href="{$goods.url}"><img width="135" height="135" src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a>
+                 <span><a  href="{$goods.url}">{$goods.short_name}</a></span>
+                  <span style="color:#cf2424; "><h1>￥{$goods.price}</h1></span>
+             </div>
+           {/if}
+          {/foreach}   
+        </div>
+         {/foreach}  
+
+        
+        <div class="cooperate">
+            {if $loop_cat.brands}
+                {foreach from=$loop_cat.brands item=brand  name=brand_child}
+                <div class="pinpai">
+                    <a href="brand.php?id={$brand.brand_id}"><img title='{$brand.brand_name}' src="data/brandlogo/{$brand.brand_logo}" /></a>
+                </div>
+
+                {/foreach} 
+            {/if}
+            {if $loop_cat.ad_id}     
+            <div class="xuan">
+                <script type="text/javascript" src="affiche.php?act=js&type=0&ad_id={$loop_cat.ad_id}"></script>
+            </div>
+            {/if}
+        </div>
+       
+    </div>
+{/if}
+{/foreach}
+
+
+
+
+
+
+
+  <!-- 进口食品 开始 -->
+        {foreach from=$index_loop_cat item=loop_cat name=foo}
+         {if  $smarty.foreach.foo.index >= 2}
+        
+          {if  $smarty.foreach.foo.index % 2 == 0   }
+                 <div class="mmly" style="height: 270px;" > 
+         {/if}
+              
+              
+            <div  class="jksp fl">
+            <div  class="classname">{$loop_cat.name}</div>
+                <div class="fl">
+                <!-- 黄色水平线-->
+                    <div>
+                        <div style="clear: left;height:8px; line-height:8px; width:378px;  background-color:#67AB27;  "> &nbsp;</div>
+                    </div>
+                    <div class="class_menu">
+                        <ul>
+                            {foreach from=$loop_cat.child_cates item=cate name=boo}
+                                {if  $smarty.foreach.boo.index < 6 }
+                                    <li><a href="{$cate.url}" index="{$smarty.foreach.boo.index}">&nbsp;{$cate.name} &nbsp;</a></li>
+                                {/if}
+                            {/foreach}
+                        </ul>
+                    </div>
+
+            </div>
+            <div class="clear"></div>
+            <div class="jksp_view cur">
+                    {foreach from=$loop_cat.cate_goods item=goods  name=child}
+                    {if  $smarty.foreach.child.index < 3 }
+                    
+                            {if  $smarty.foreach.child.first } 
+                            <div class="jksp_s"   >
+                                <a  href="{$goods.url}"><img  src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a>
+                                <div class="jksp_s_np">
+                                    <span><a href="{$goods.url}">{$goods.name}</a></span> <span style="text-align: right;color: #ffff00;font-size: 16px; font-weight: bolder;">￥{$goods.price}</span>
+                                </div>
+                            </div>
+                            {else}
+                                <div class="jksp_s2">
+                                    <div><a  href="{$goods.url}"><img  src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a></div>
+                                    <div class="jksp_name"><a href="{$goods.url}">{$goods.short_name}</a></div>
+                                    <div class="jksp_price"><span style="font-size: 16px;">￥</span><span style="font-size: 25px; font-weight: bolder;">{$goods.price}</span></div>
+                                </div>
+                            {/if}
+                         
+                    {/if}
+                    {/foreach}   
+            </div>
+            
+                <!--二级分类商品 -->
+            {foreach from=$loop_cat.child_cat_goods item=child_goods }
+            <div class="jksp_view">
+                    {foreach from=$child_goods item=goods  name=child}
+                    {if  $smarty.foreach.child.index < 3 }
+                    
+                            {if  $smarty.foreach.child.first } 
+                            <div class="jksp_s"   >
+                                <a  href="{$goods.url}"><img  src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a>
+                                <div class="jksp_s_np">
+                                    <span><a href="{$goods.url}">{$goods.name}</a></span> <span style="text-align: right;color: #ffff00;font-size: 16px; font-weight: bolder;">￥{$goods.price}</span>
+                                </div>
+                            </div>
+                            {else}
+                                <div class="jksp_s2">
+                                    <div><a  href="{$goods.url}"><img  src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic" /></a></div>
+                                    <div class="jksp_name"><a href="{$goods.url}">{$goods.short_name}</a></div>
+                                    <div class="jksp_price"><span style="font-size: 16px;">￥</span><span style="font-size: 25px; font-weight: bolder;">{$goods.price}</span></div>
+                                </div>
+                            {/if}
+                         
+                    {/if}
+                    {/foreach}   
+            </div>
+            {/foreach} 
+            
+            
+            
+            
+            
+        
+        </div>
+        {if  $smarty.foreach.foo.index % 2 == 1   }
+                </div>  
+        {/if}
+        
+        {/if}
+     {/foreach}
+   
+    <!-- 进口食品 结束 -->
+
+<script type="text/javascript">
+{literal}
+$(function() {
+;
+    $('.mmly.one_column').each(function(index,ele){
+         $(ele).find('.class_menu a').hover( function(){
+             $(ele).find('.class_menu a.cur').removeClass('cur');
+             $(this).addClass('cur');        
+             var i =  parseInt( $(this).attr('index') );        
+            
+            
+             $(ele).find('.sales.cur').removeClass('cur');
+             $(ele).find('.sales:eq(' + (i+1) +')').addClass('cur');
+            
+        });
+        $(ele).find('.classname').hover(function(){
+             $(ele).find('.class_menu a.cur').removeClass('cur');   
+             $(ele).find('.sales.cur').removeClass('cur');
+             $(ele).find('.sales:first').addClass('cur');
+
+        });
+        
+       
+    });
+    
+     $('.jksp').each(function(index,ele){
+          $(ele).find('.class_menu a').hover( function(){
+             $(ele).find('.class_menu a.cur').removeClass('cur');
+             $(this).addClass('cur');        
+             var i =  parseInt( $(this).attr('index') );        
+            
+            
+             $(ele).find('.jksp_view.cur').removeClass('cur');
+             $(ele).find('.jksp_view:eq(' + (i+1) +')').addClass('cur');
+            
+        });
+        $(ele).find('.classname').hover(function(){
+             $(ele).find('.class_menu a.cur').removeClass('cur');   
+             $(ele).find('.jksp_view.cur').removeClass('cur');
+             $(ele).find('.jksp_view:first').addClass('cur');
+
+        });
+    });
+ 
+   
+
+});
+
+{/literal}
+</script>

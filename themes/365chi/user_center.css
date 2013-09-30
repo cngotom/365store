@@ -1,0 +1,171 @@
+/* 
+    Document   : user_center.css
+    Created on : 2012-10-30, 21:12:24
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+.AreaL {
+    width: 200px;
+
+}
+
+.AreaR {
+  width: 792px;
+}
+table.order_list_table  tbody{
+    border-collapse: collapse;
+    border: solid #E6E6E6;
+    border-width: 0 1px 1px 1px;
+}
+
+table.order_list_table th{
+    background: #F7F7F7 url(images/green/user-center/tb-th.gif) repeat-x;
+    height: 31px;
+    color: #666;
+    font-weight: normal;   
+    text-align: center;
+    padding: 0;
+    margin:0;
+}
+
+table.order_list_table td{
+    border: solid #E6E6E6;
+    border-width: 1px 0 0 1px;
+    padding: 5px 4px;
+    text-align: center;
+}
+
+.ftx-03{
+    color: #999;
+}
+.ftx-04{
+    color: #005EA7;
+}
+
+.img-list a {
+    border: 1px solid #E1E1E1;
+    float: left;
+    margin-left: 3px;
+    margin-bottom: 3px;
+}
+.img-list img {
+    width: 48px;
+    height: 48px;
+}
+
+.box_1 .item {
+
+    padding: 10px 15px;
+    
+
+}
+
+.form label, .form input, .form select, .form textarea, .form button, .form .label {
+    float: left;
+    font-size: 12px;
+}
+.sele {
+    margin-right: 10px;
+}
+select {
+    border: 1px solid;
+    white-space: pre;
+    color: black;
+    cursor: default;
+}
+.form .text, .form .area, .sele {
+    padding: 4px;
+    border: 1px solid;
+    border-color: #AAA #DDD #DDD #AAA;
+}
+.bti {
+    background: url(images/green/user-center/use.gif) 0 -42px;
+    width: 50px;
+    height: 25px;
+    margin-top: -1px;
+}
+
+
+
+ .m {
+                    border: 1px solid #DDD;;
+    }
+.mt {
+    border-bottom: 1px solid #DDD;;
+    background: #FBF7EE;
+    padding: 4px 8px;
+}
+.mt h2 {
+    display: inline;
+    margin-right: 5px;
+    font-size: 14px;
+}
+.mc {
+    padding: 10px;
+}
+.mc a{
+    color: red;
+}
+.ftx3 {
+    color: #999;
+    font-size: 10px;
+}
+th {
+    border-bottom: 1px solid #E5E5E5;
+    text-align: center;
+    font-weight: bold;
+}
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+.productdetals td {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.order_comment span{
+    margin-left:80px;
+}
+.order_comment span.nomargin{
+    margin-left:0px;
+}
+
+.order_comment  dl {
+    border-top: 1px dashed #CCC;
+    padding: 15px 16px;
+    overflow: hidden;
+}
+.order_comment dt{
+    
+    margin-bottom:8px;
+    font-weight: bold;
+} 
+.order_comment .area1 {
+    width: 660px;
+    height: 60px;
+    border: 1px solid #CCC;
+}
+#v-exp {
+padding: 12px;
+}
+h5 {
+    display: block;
+    font-size: 0.83em;
+    font-weight: bold;
+    text-align:left;
+    color:black;
+   
+}
+#v-exp h5 {
+    margin-bottom: 5px;
+}   
+
+.ui-widget-header {
+    background-color:white;
+    border:none;
+    
+}

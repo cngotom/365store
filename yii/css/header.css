@@ -1,0 +1,94 @@
+@charset "utf-8";
+* {margin:0px;padding:0px;font-size:16px}
+body {-webkit-text-size-adjust:none;background:#EEEEEE;min-width:320px;margin:0px;padding:0px;font-family:Arial;}
+
+ul, li {list-style:none;}
+a {text-decoration:none;color:#333;}
+img, img a {border:0px;}
+.red {color:#E91758;}
+.gray {color:#666;}
+.blue{color:#2154AA;}
+.black {color:#000;}
+.back-gray{background-color:#efefef;}
+.clear,.module {clear:both;}
+.fl{float: left;}
+.fr{float: right;}
+.price{color:#E91758; font-size:20px;}
+.href_bt{-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;border: 1px solid #999;background:#e91758; color:#FFF; font-size:16px; font-weight:bold; padding:5px 5px}
+
+.fullscreen{ margin:0 auto; width:310px; padding: 0 5px;}
+
+/* 头部--------------------------------------deng */
+.header {border-top:2px rgba(180, 228, 97, 0.94) solid;}
+.logo{float: left;width:110px;}
+.common-tab {height: 39px;line-height: 39px;width:200px;float:right;}
+.common-tab li {
+	float: left;
+	text-align: center;
+	width:76px;
+	cursor:pointer;
+	font-size:16px;
+	background: #f4f4f4; /* for non-css3 browsers */
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#EEEEEE)); /* for webkit browsers */
+	background: -moz-linear-gradient(top, #ffffff, #EEEEEE); /* for firefox 3.6+ */
+	font-size:14px;
+	font-weight:bold;
+}
+.common-tab li:first-child{width:40px;}
+.common-tab li:last-child{width:84px;}
+
+.common-tab li a {display:block;color:#333;font-size:14px;background:url(../images/menu-xian.jpg) no-repeat right;}
+.common-tab li:last-child a {background-image:none;}
+
+.common-tab li.current {
+	background:none; /* for non-css3 browsers */
+}
+
+
+/*搜索*/
+.search {margin-top:5px;display: inline-block;}
+.inputsearh 
+{
+	background: url("../images/search.png") no-repeat 5px 8px;
+    border:#c2c2c2 solid 1px;
+    border-right:0px;
+    color: #666;
+    float: left;
+    font-size: 14px;
+    height: 28px;
+    line-height: 28px;
+    padding:0 5px 0 25px;
+    width: 231px;
+    border-radius:2px 0px 0px 2px;
+}
+.aclose {
+    background: url("../images/search_bg.png") no-repeat right top;
+    border: 0 none;
+    color: #FFFFFF;
+    cursor: pointer;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    height: 34px;
+    line-height:30px;
+    text-align: center;
+    text-shadow: 1px 1px 2px #61616B;
+    width: 48px;
+    border-radius:0;
+}
+
+/* 底部 */
+.footer{ margin:0 auto; width:310px;}
+.footer div{border-top:#c9c9c9 1px solid; display:block;color:#999; padding:8px 5px;}
+.footer .gray{ text-align:center; line-height:22px; border-top:0;}
+
+/*app面包屑*/
+.app-dh{height: 39px;line-height: 39px;width:320px;float:left;text-align: center;background: #e50065; /* for non-css3 browsers */}
+.app-return {float: left;width:60px; height: 39px;}
+.app-title {float: left;width:200px; height: 39px;font-size:18px;font-weight:bold;color:#FFF;}
+.app-function {float: right;width:60px; height: 39px;}
+.app-dh a{color:#FFF;}
+
+/*导航面包屑*/
+.common-nav {border-bottom: 1px solid #C9C9C9;height: 30px;line-height: 30px;overflow: hidden;width: 100%; font-family:Arial;color:#999}
+.common-nav a{ font-size:14px;}

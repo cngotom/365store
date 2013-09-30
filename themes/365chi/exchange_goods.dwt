@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="js/style/validator.css" rel="stylesheet" type="text/css" />
+<style>
+ .AreaR {
+    width: 786px;}
+ .AreaL {
+    width: 206px;}
+ #list_menu {
+    width: 206px;}
+ #list_menu ul li {
+    float: left;
+    width: 206px;}
+ #list_menu .main_cate {
+      background-position:180px;
+    width:190px;}
+ #cate_list span {
+         width:71px;}
+ .itemSearchResult ul li, .itemSearchResultT ul li {
+    width: 186px; padding-left:4px;padding-right:4px;}
+ 
+ #list_menu .selected .main_cate {
+    background-position:180px;}
+ .itemSearchResult{
+     margin-top: 5px;
+ }
+ .itemSearchResult ul li a.title, .itemSearchResultT ul li a.title {
+    line-height: 35px;
+}
+.listform{
+    display: block;
+ 
+}
+.exchange_fcolor_red{
+    color: #CC3300;
+    margin-top:20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bolder;
+}
+.product{
+    margin-right: 20px;
+    padding-top: 0px;
+}
+.border_2_c{
+    border: 2px solid #CCC;
+}
+.ex_title{
+    color: #DF4400;
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 54px;
+    height: 54px;
+    text-align: left;
+    margin-left: 50px;
+}
+.exchange_btn{
+    background-image: url("themes/365chi/images/integral_btn02.gif");
+    width:90px;
+    height:24px;
+    border: none;
+    cursor: pointer;
+}
+
+.box p,.padd p{
+    text-align: left;
+    padding: 10px;
+    padding-left: 28px;
+}
+ </style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+<script type="text/javascript">
+function $id(element)
+{
+  return document.getElementById(element);
+}
+//切屏--是按钮，_v是内容平台，_h是内容库
+function reg(str)
+{
+  var bt=$id(str+"_b").getElementsByTagName("h2");
+
+  for(var i=0;i<bt.length;i++)
+  {
+    bt[i].subj=str;
+    bt[i].pai=i;
+    bt[i].style.cursor="pointer";
+
+    bt[i].onclick=function()
+    {
+      $id(this.subj+"_v").innerHTML=$id(this.subj+"_h").getElementsByTagName("blockquote")[this.pai].innerHTML;
+
+      for(var j=0;j<$id(this.subj+"_b").getElementsByTagName("h2").length;j++)
+      {
+        var _bt=$id(this.subj+"_b").getElementsByTagName("h2")[j];
+        var ison=j==this.pai;
+        _bt.className=(ison?"":"h2bg");
+      }
+    }
+  }
+
+  $id(str+"_h").className="none";
+  $id(str+"_v").innerHTML=$id(str+"_h").getElementsByTagName("blockquote")[0].innerHTML;
+}
+
+</script>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="wrap box">
+  <div id="ur_here">
+    <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+  </div>
+</div>
+{insert_scripts files='formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js,transport.js'}
+<!--当前位置 end-->
+<div class="blank"></div>
+
+<div class="wrap clearfix border_2_c">
+
+    <!--商品详情start-->
+    <div id="goodsInfo" class="clearfix">
+        
+      <!--商品图片和相册 start-->
+      <div class="product f_l">
+        <div class="goodThumb">
+            <img src="{$goods.img}" alt="{$goods.title|escape:html}"/> 
+            <!-- TemplateBeginEditable name="商品相册下广告（宽230px）" -->
+            <!-- TemplateEndEditable -->
+        </div>
+      </div>
+      <!--商品图片和相册 end-->
+       <div class="textInfo">
+        <p class="ex_title">{$goods.goods_style_name}</p>
+        <ul class="clearfix">
+             <li class="clearfix">
+            <strong>{$lang.exchange_integral}</strong><font class="shop">{$goods.exchange_integral}</font><br />
+          </li>
+         
+          <li class="padd">
+            <p><a title="兑换" onclick="do_exchange({$goods.id},'{$goods.title}' , {$goods.exchange_integral})" href="javascript:void(0);"><img src="themes/365chi/images/integral_btn02.gif"></a></p>
+          </li>
+        </ul>
+      </div>
+    
+    </div>
+    <!--商品详情end-->
+
+    <!--商品描述，商品属性 START-->
+    <div class="box">
+        <p>{$goods.content}</p>
+    </div>
+
+
+    <div class="blank"></div>
+    <!--商品描述，商品属性 END-->
+
+</div>
+<div class="blank5"></div>
+
+
+
+
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+
+</body>
+
+<script type="text/javascript">
+<!-- {literal} -->
+onload = function()
+{
+  fixpng();
+}
+<!-- {/literal} -->
+</script>
+</html>

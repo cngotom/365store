@@ -1,0 +1,28 @@
+RewriteEngine on 
+RewriteBase / 
+#================= 安全策略 =======================
+#目录禁止访问
+#themes中存在图片，无法直接禁止，所以按照扩展名禁止
+RewriteRule ^(bin/|oldshop/|config/|widget/|languages/|data/).* syserror.html
+RewriteRule (.*)\.lbi$    syserror.html
+RewriteRule (.*)\.dwt$    syserror.html
+
+
+#================== 兼容老路由 =============================
+#php文件直接引用映射
+RewriteRule (.*)\.php$    sys_router\.php [L]
+RewriteRule ^admin(.*)$       admin\\$1 [L]
+
+#================== 新方式MVC  =====================================
+#完整host/controller/action/params规则映射
+RewriteRule ^(test/|Goods/) sys_router\.php [L]
+
+#controller添加默认action的映射
+RewriteRule ^(test|Goods/)$ sys_router\.php [L]
+
+#根目录映射
+RewriteRule ^(/)?$ sys_router\.php [L]
+
+
+
+

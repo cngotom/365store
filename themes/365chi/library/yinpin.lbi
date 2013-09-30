@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="f5">
+    <div class="pfloor-top">更多 &gt;&gt; </div>
+    <div >
+                <div class="pic-grid-container clearfix">
+            <!-- 格子图片 -->
+            <div style="width:765px;height:290px;float:left;" class="pic-grid ">
+                <div style="top:0px;left:0px" class="pic-grid-item">
+                    <a href="goods.php?id=1120"><img src="images/green/f1-images/f1_01.jpg"></a>
+                    <div class="maskLayer" style=""></div>
+                </div>
+                    <div style="top:0px;left:142px" class="pic-grid-item">
+                    <a href="category.php?id=12"><img src="images/green/f1-images/f1_02.jpg"></a>
+                    <div class="maskLayer" style=""></div>
+                </div>
+                <div style="top:0px;left:567px;" class="pic-grid-item">
+                    <a href="goods.php?id=1589"><img src="images/green/f1-images/f1_03.jpg"></a>
+                        <div class="maskLayer" style=""></div>
+                </div>
+                <div style="top:0px;left:850px;" class="pic-grid-item">
+                    <a href="goods.php?id=1624"><img src="images/green/f1-images/f1_04.jpg"></a>
+                        <div class="maskLayer" style=""></div>
+                </div>
+                <div style="top:145px;left:0px;" class="pic-grid-item">
+                    <a href="goods.php?id=1576"><img src="images/green/f1-images/f1_05.jpg"></a>
+                        <div class="maskLayer" style=""></div>
+                </div> 
+                <div style="top:145px;left:568px;" class="pic-grid-item">
+                    <a href="goods.php?id=1600"><img src="images/green/f1-images/f1_06.jpg"></a>
+                        <div class="maskLayer" style=""></div>
+                </div>  
+                <div style="top:145px;left:712px;" class="pic-grid-item">
+                    <a href="category.php?id=15"><img src="images/green/f1-images/f1_07.jpg"></a>
+                        <div class="maskLayer" style=""></div>
+                </div>                                                                                     
+            </div>                      
+        </div>                  
+    </div>
+</div>

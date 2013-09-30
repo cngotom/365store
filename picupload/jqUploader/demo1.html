@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>jqUploader demo</title>
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+        <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="jquery.flash.js"></script>
+        <script type="text/javascript" src="jquery.jqUploader.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#example3').jqUploader({
+                    debug:0
+                    ,background:'FFFFFF'
+                    ,barColor:'FFFFFF'
+                    ,allowedExt:'*.avi; *.jpg; *.jpeg; *.png'
+                    ,allowedExtDescr: 'what you want'
+                    ,validFileMessage: 'Thanks, now hit Upload!'
+                    ,endMessage: 'and don\'t you come back ;)'
+                    ,hideSubmit: true
+                });
+            });
+        </script>
+    <style>
+    page,ul,li,input,div,form{
+    	padding:0px;margin:0px;	
+	}
+    </style>        
+    </head>
+    <body>
+        <div id="page" style="width:240px;padding:0px;margin:0px;margin:0px;">
+            <form enctype="multipart/form-data" action="flash_upload.php" method="POST" class="a_form" style="width:200px;padding:0px;margin:0px;margin:0px;float:left;">                  
+                    <ul style="padding:0px;margin:0px;margin:0px;float:left;">
+                        <li id="example3">
+                            <input name="myFile3" id="example3_field"  type="file" />
+                        </li>
+                    </ul>
+                <input type="submit" name="submit" value="Upload File" />
+                <div style="clear:both;"></div>
+            </form>
+        </div>
+    </body>
+</html>

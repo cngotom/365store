@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="themes/365chi/index.css" rel="stylesheet" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS|{$page_title}" href="{$feed_url}" />
+<!-- {if $is_index} -->
+    <link href="index_ad.css" rel="stylesheet" type="text/css" />
+<!--{/if}-->
+{* 包含脚本文件 *}
+{insert_scripts files='common.js,index.js,lefttime.js'}
+
+</head>
+<body>
+    
+<!-- 大小广告切换 -->
+
+<!--
+<div class="topad j-change" style="background-color:#">
+    <div class="js-slideS" style="display: block;"><a href="topic.php?topic_id=4" target="_blank"><img width="967" height="52" alt="topad" src="themes/365chi/images/green/index/small_index.jpg"></a></div>
+    <div style="display: none;" class="js-slideB"><a href="topic.php?topic_id=4" target="_blank"><img width="960" height="402" alt="topad" src="themes/365chi/images/green/index/big_index.jpg"></a></div>
+</div>
+-->
+<!-- 春节礼品
+<div class="topad j-change" style="background-color:#">
+   <div class="js-slideS" style="display: block;"><a href="topic.php?topic_id=7" target="_blank"><img width="967" height="52" alt="topad" src="themes/365chi/images/green/index/small_index_7.gif"></a></div>
+</div>
+-->
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='jquery-ui-1.8.18.custom.min.js'}
+
+
+<div class="main">
+    <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+    <!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem -->
+    <div class="kuai_tuan fr">
+        <!-- #BeginLibraryItem "/library/new_articles.lbi" --><!-- #EndLibraryItem -->
+        <!-- #BeginLibraryItem "/library/index_tuan.lbi" --><!-- #EndLibraryItem -->
+    </div>
+ 
+</div>
+
+<div class="hotsale"> <!-- 热销排行榜 -->
+         <!-- #BeginLibraryItem "/library/top10.lbi" --><!-- #EndLibraryItem -->
+       
+         <!-- #BeginLibraryItem "/library/index_hot_new.lbi" --><!-- #EndLibraryItem --> 
+    
+    </div>
+
+
+<!-- 分类循环开始 -->
+
+  <!-- #BeginLibraryItem "/library/index_loop_cat.lbi" --><!-- #EndLibraryItem -->
+
+<!-- 分类循环结束 -->
+
+
+
+
+
+
+
+
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+</body>
+
+ 
+    
+    
+    
+
+<script type="text/javascript">
+var gmt_end_time = "{$end_time|default:0}";
+var now_time = {$now_time};
+<!-- {literal} -->
+
+onload = function()
+{
+  try
+  {
+    onload_leftTime();
+  }
+  catch (e)
+  {}
+}
+<!-- {/literal} -->
+   // alert("365商城�测试9月1日正式上线，在此之前的所有下单均无效,敬请用户不要支付，否则，由此产生的问题365商城将不承担任何责任");
+{literal}
+      $(function() {
+          
+       
+            //广告切换
+            function imgad(f, b, a, e, c, d) {
+                    var f = $(f);
+                    var b = $(b);
+                    f.hide();
+                    b.hide();
+                    b.slideDown(a);
+                    setTimeout(function() {
+                        b.slideUp(e, function() {
+                            f.slideDown(c)
+                        })
+                    }, d)
+            }
+           // imgad('.js-slideS','.js-slideB', 1000, 1000, 1000, 5000);
+           
+           
+          $("#slogans dl").each(function(){ 
+                $(this).mouseover(function(){       
+  
+                    $(this).addClass("hover");
+                });
+                $(this).mouseout(function(){       
+                  //  $("#CartDiv").hide();
+
+                    $(this).removeClass("hover");
+                });
+         });
+         
+         
+    });
+{/literal}
+</script>
+   <script type="text/javascript">
+    {literal}
+            $(function(){
+                    $('#slides').slides({
+                            preload: true,
+                            generatePagination: true,
+                            preloadImage: 'themes/365chi/images/green/slide/img/loading.gif',
+                            play: 5000,
+                            pause: 2500,
+                            hoverPause: true				
+                    });
+            });
+            $(".pic-grid-item").mouseover(function(){
+                    var nodes = $(this.parentElement).find('.pic-grid-item');
+                    len = nodes.length;
+                    for(i=0;i<len;i++){
+                            node = nodes[i];
+                            if(node.id != this.id){
+                                    //$(node).find(".maskLayer")[0].style.display = '';
+                                    $(node).find(".maskLayer").show();
+                            }else{
+                                    //$(node).find(".maskLayer")[0].style.display = 'none';
+                                    $(node).find(".maskLayer").hide();
+                            } 
+                    }
+
+
+            });
+            $(".slides_container").mouseout(function(){			
+                    $(".pic-grid-item .maskLayer").hide();
+            });
+            var pic_idcounter = 0;
+            $(".pic-grid-item .maskLayer").hide();
+            $(".pic-grid-item").each(function(){
+                this.id = 'pic_' + pic_idcounter++;
+            });
+    {/literal}
+</script>
+    
+</html>

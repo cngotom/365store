@@ -1,0 +1,39 @@
+@charset "utf-8";
+#topic_content{margin: 0;padding: 0; font: bolder 14px "黑体","宋体",Tahoma; color: #90601B; }
+#topic_content{background: url(../images/gouwuka/bg1.gif); }
+a{cursor:pointer;}
+a,img{ border: 0px;  vertical-align: middle; text-align: center; overflow: hidden;}
+a{text-decoration: none;}
+.clear{clear:left;}
+.fr{float: right;}
+.fl{float:left;}
+#topic_content .top,.meishi,.ka_row{margin: 0 auto;}
+
+#topic_content .top{width: 1130px; height:420px; }
+#topic_content .tit{height:210px; float: left;}
+
+.meishi{width: 1130px;}
+.meishi_x{width: 282px; height: 132px;float: left;}
+
+.ka_area{ width: 1130px;background: url(../images/gouwuka/bg2.jpg);}
+.ka_row{width: 1130px; height: 310px;}
+.bottom{width: 1130px;height: 50px;background: url(../images/gouwuka/bottom.jpg); position: relative;}
+.ka_h,.ka_t,.ka_c,.ka_c2,.price,.city{width: 204px;}
+.ka_h{height: 306px; border: 2px solid #F0D6C3; float: left;  background: white; }
+.ka_t{height: 53px;  }
+.ka_c,.ka_c2{height: 156px; text-align: center;}
+.ka_t,.ka_c,.ka_c2{border-bottom:2px solid #F0D6C3;}
+.ka_c img{ margin-top:19px ;}
+.ka_c2 img{ margin-top: 10px;}
+.price{height: 75px; position: relative;}
+.n_p{height: 35px;line-height:35px;text-align: center;}
+.city{height: 20px;line-height: 20px;text-align: center; background: #D8BEAD;  color: white; }
+.buy{width: 40px; height: 38px; position: absolute;left:150px; top:30px; background-color:#ff758D; text-align: center;  }
+.buy span{display: block; padding-top: 5px; }
+.buy span a{color: gold;}
+.ka365_x{width:282px; height: 292px; float: left;}
+
+.xian{width: 282px;height: 305px; float: left;}
+
+.more{ width: 22px; height: 90px;text-align: center;  background-image: url(../images/gouwuka/more.gif)}
+.more a{color: white;}

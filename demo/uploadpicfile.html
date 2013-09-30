@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta charset="utf-8">
+        <title>jqUploader demo</title>
+        <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
+		<link rel="stylesheet" href="/js/jquery-ui.css" type="text/css" media="all" />
+		<script src="/js/jquery-ui-1.8.18.custom.min.js" type="text/javascript"></script>
+		<script src="/js/uploadimage.js" type="text/javascript"></script>
+    </head>
+    <body>
+		<img id="pic1" alt="pic" width="400px" height="300px" class="ajax-modify-pic"/>
+		<img id="pic2" alt="pic"  width="400px" height="300px" />
+		<br/>
+		<hr/>
+		<img id="pic1-1" alt="pic" width="120px" height="90px" class="ajax-upload-pic" picid="pic1"/>
+		<img id="pic2-1" alt="pic"  width="120px" height="90px" class="ajax-upload-pic" picid="pic1"/>
+				
+	    
+		<div id="upload_dialog" title="上传并导出图片" class="upload_dialog"></div>
+		
+    </body>
+    <script>
+    UploadImg.callback_success = function(id,filename){
+    	alert("ok:id" + id + " filename:" + filename);
+    }
+    </script>
+</html>

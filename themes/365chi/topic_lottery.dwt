@@ -1,0 +1,425 @@
+{* TitlePicWidth: 2 *}
+{* TitlePicHeight: 38 *}
+
+{* 说明：$title_pic，分类标题图片地址； *}
+{* 说明：$base_style，基本风格样式颜色； *}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$topic.title}_{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="/themes/365chi/index.css" rel="stylesheet" type="text/css" />
+
+<link href="/themes/365chi/topic/css/lottery.css" rel="stylesheet" type="text/css" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+{if $topic.css neq ''}
+<style type="text/css">
+  {$topic.css}
+</style>
+{/if}
+<style type="text/css">
+
+</style>
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+{insert_scripts files='formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js,transport.js,helper.js'}
+<div class="blank"></div>
+
+  
+
+<div id="topic_content">
+  <div class="top_area">
+        <div id="show_gift"> 
+            <div> <img id="gift_img" src="themes/365chi/topic/images/lottery/g1.gif"> </div>
+            <div id='gift_text' > 三六五送你香吻一枚 </div>
+            <div id="gift_btn_div" class="lm_btn1"  style="width:68px;"> <div  class="btncont " style="margin-left: 20px;" type="button" id="gift_btn">领取</div> </div> 
+        </div>
+          
+        <div class="top"><img src="themes/365chi/topic/images/lottery/1.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/2.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/3.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/4.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/5.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/6.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/7.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/8.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/9.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/10.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/11.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/12.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/13.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/14.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/15.png" /></div>
+        <div class="top"><img src="themes/365chi/topic/images/lottery/16.png" /></div>
+        
+        <div class="jiangpin j1"><a><img width="81" height="100" src="themes/365chi/topic/images/lottery/jiangpin1.png" /></a></div> 
+        <div class="jiangpin j2"><a><img  width="80" height="60" src="themes/365chi/topic/images/lottery/jiangpin2.png" /></a></div> 
+        <div class="jiangpin j3"><a><img src="themes/365chi/topic/images/lottery/jiangpin3.png" /></a></div> 
+        <div class="jiangpin j4"><a><img src="themes/365chi/topic/images/lottery/jiangpin4.png" /></a></div> 
+        <div class="jiangpin j5"><a><img src="themes/365chi/topic/images/lottery/jiangpin5.png" /></a></div> 
+        <div class="jiangpin zouni"><img src="themes/365chi/topic/images/lottery/zouni.png" /></div>
+       
+    </div>
+    <div  style="clear: left;"></div>
+    <div class="lottery">
+        <div class="l_namelist">
+            <div class="l_namelist_t">
+                <img src="themes/365chi/topic/images/lottery/bg1.png" />
+            </div>
+            <div class="l_namelist_c">
+                <marquee  id="marquee" direction="up" scrolldelay="200">
+                    
+                    
+                </marquee>
+            </div>
+            
+        </div>
+        
+        <div class="bibei">
+            <div class="bibei_t">
+                <img src="themes/365chi/topic/images/lottery/bg2.png"  />
+            </div>
+            <div class="bibei_c">
+                 <!--{foreach from=$top_goods item=top_id name=child}-->
+                          <div class="bibei_h">
+                            <div class="bibei_p"><a href="{$top_id.url}"><img src="{$top_id.goods_thumb}" /></a></div>
+                            <div class="bibei_name">
+                                <span><a href='{$top_id.url}'>{  $top_id.short_name }</a></span>
+                                <span class="r"> {$top_id.shop_price}</span>
+                            </div>
+                            <div>
+                                <div class="buy_button"><a href='javascript:void(0)' onclick="simpleAddToCart({$top_id.goods_id},'show_success_tips_{$top_id.goods_id}')"><img src="themes/365chi/topic/images/lottery/buy.png" /></a></div>
+                            </div>
+                            <div style="display: none;background-color: green;position: absolute;bottom: 10px;left: 10px;z-index: 1000;color: white;" id="show_success_tips_{$top_id.goods_id}"  ><span>该商品已经被添加到购物车里面</span></div> 
+                        </div>
+                <!--{/foreach}-->
+                
+            </div>
+        </div>
+    </div>
+    
+    <div class="lottery">
+        <div class="dacan_t">
+            <img src="themes/365chi/topic/images/lottery/bg3.png" />
+        </div>
+        <div class="dacan_c">
+                 <!--{foreach from=$bottom_goods item=top_id name=child}-->
+                          <div class="bibei_h">
+                            <div class="bibei_p"><a href="{$top_id.url}"><img src="{$top_id.goods_thumb}" /></a></div>
+                            <div class="bibei_name">
+                                <span><a href='{$top_id.url}'>{  $top_id.short_name }</a></span>
+                                <span class="r"> {$top_id.shop_price}</span>
+                            </div>
+                            <div>
+                                <div class="buy_button"><a href='javascript:void(0)' onclick="simpleAddToCart({$top_id.goods_id},'show_success_tips_{$top_id.goods_id}')"><img src="themes/365chi/topic/images/lottery/buy.png" /></a></div>
+                            </div>
+                            <div style="display: none;background-color: green;position: absolute;bottom: 10px;left: 10px;z-index: 1000;color: white;" id="show_success_tips_{$top_id.goods_id}"  ><span>该商品已经被添加到购物车里面</span></div> 
+                        </div>
+                <!--{/foreach}-->
+        </div>
+        
+        
+        
+
+    </div>
+    
+    
+    
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 帮助和尾 -->
+<div class="foot">
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->      
+     <div  class="clear"></div>
+     <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</div>
+<!-- 帮助和尾结束 -->
+
+
+
+
+
+
+</body>
+    
+<script language="javascript">
+    
+ $(function(){
+    var MSIEBrowser = function()
+    {
+        var rorateIt = function(node,deg)
+        {
+            //取得末变形前矩形的中点
+            var rect = node.getBoundingClientRect(),
+            cx1 = (rect.right  - rect.left) / 2, // center x
+            cy1 = (rect.bottom - rect.top)  / 2, // center y
+            deg2rad =  Math.PI / 180,//角度转弧度
+            rad = deg * deg2rad ,
+            cos = Math.cos(rad),
+            sin = Math.sin(rad);
+            //http://www.satzansatz.de/cssd/onhavinglayout.html
+            if(!node.currentStyle.hasLayout){//在IE7中，如果没有获得hasLayout，滤镜会失效
+                node.style.writingMode  = "tb-rl";
+            }
+
+            var ident  = "DXImageTransform.Microsoft.Matrix";
+            node.style.filter = "progid:"+ident +"(M11='1.0',sizingmethod='auto expand')";
+
+            var filter = node.filters.item(ident);
+            //  +-------+-------+
+            //  |  M11  |  M12  |
+            //  +-------+-------+
+            //  |  M21  |  M22  |
+            //  +-------+-------+
+            filter.M11 = cos;
+            filter.M12 = -sin;
+            filter.M21 = sin;
+            filter.M22 = cos;
+
+            //取得当前中心
+            rect = node.getBoundingClientRect();
+            //修正
+            if((rect.right  - rect.left) %2 != 0 )
+                rect.right += 1;
+            if((rect.bottom  - rect.top) %2 != 0 )
+                rect.bottom += 1;
+
+
+            var cx = (rect.right  - rect.left) / 2;
+            var cy = (rect.bottom - rect.top)  / 2;
+            //调整此元素的坐标系，实现CSS3 transform-origin的功能
+            node.style.marginLeft = cx1 - cx + "px";
+            node.style.marginTop  = cy1 - cy + "px";
+        }
+
+        this.rorateIt = function(node, deg)
+        {
+                rorateIt(node,0);
+                rorateIt(node,deg);
+        }
+
+
+        this.getValue = function()
+        {
+                return 3;
+        }
+    }
+
+    var W3CBrowser = function()
+    {
+        var rorateIt = function(node,deg)
+        {
+            var cssText = "-webkit-transform: rotate("+ deg +"deg);"
+            cssText += "-moz-transform: rotate("+ deg +"deg);"
+            cssText += " -o-transform: rotate("+ deg +"deg);"
+            node.style.cssText = cssText;
+        }
+
+        this.rorateIt = function(node,deg)
+        {
+            rorateIt(node,deg);
+        }
+
+        this.getValue = function()
+        {
+            return 0.8;
+         }
+    }
+    function createBrowser()
+    {
+        var isMSIE = navigator.userAgent.indexOf("MSIE") != - 1 ? true : false;
+        if(isMSIE)
+            return new MSIEBrowser();
+        else
+           return new W3CBrowser();
+    }
+
+    var deg = 0; //标记数字，每360度清0
+    var degcount = 0; //已经旋转度数
+    var maxdegcount = 5420; //总共要旋转度数
+    var changeNum = 120 ;// 每转changeNum度进行一次速度变换
+    var is_start = false;
+    var getIdentity = function()
+    {
+        var count = maxdegcount / changeNum //要更新速度次数
+        var alreadycount = degcount  / changeNum //已更新速度次数
+        var identity = count/2 - Math.abs(alreadycount - count/2)
+        identity = identity <= 1 ? 1 : identity;
+        return identity * browser.getValue();
+    }
+
+
+
+    var browser = createBrowser();
+    board = $('.zouni').get(0);
+
+
+    function doResponse(res)
+    {
+        if(res.code == 0)
+        {
+            is_start = true;
+            maxdegcount = res.deg;
+            var timer =  setInterval(function(){
+                    
+                var identity = getIdentity();
+                if(degcount >= maxdegcount)
+                {
+                    window.clearInterval(timer);
+                    is_start = false;
+                    //中奖判断
+                    getLottery(res);
+                    return;
+                }
+                if(deg>=360)
+                    deg = 0
+                deg = degcount += identity;
+                browser.rorateIt(board,deg);
+            },10);
+        }
+        else{
+            alert(res.content);
+        }
+    }
+    
+    function openLotteryDialog()
+    {
+        $( "#show_gift" ).dialog({
+            height: 280,
+            width:300,
+            modal: true
+        })	
+    }
+    function closeLotteryDialog()
+    {
+        $( "#show_gift" ).dialog('close');
+    }
+    
+    
+    function getLottery(res)
+    {
+ 
+        var gift = res.gift;
+        switch (gift)
+        {
+            case 0:
+                $('#gift_text').html('恭喜您，获得了365爱的飞吻');
+                $('#gift_img').attr('src','themes/365chi/topic/images/lottery/g1.gif');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 1:
+                $('#gift_text').html('恭喜您，获得了50元优惠卷，满500可使用，您可以在个人中心的我的优惠券中看到此券，也可以在结算时点击优惠券来使用！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 2:
+               // $('#gift_text').html('恭喜您，获得了50元优惠卷，您可以在个人中心的我的优惠券中看到此券，也可以在结算时点击优惠券来使用！');
+               // $('#gift_btn').click(function(){ UI.Share.sinaT(); });
+                break;
+            case 3:
+                $('#gift_text').html('恭喜您，获得了益者有机金丝枣，该商品已经以0元加入到您的购物车，您也可以在个人中心的我的提货券中看到它！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });  
+                break;
+            case 4:
+                $('#gift_text').html('人生不如意十之八九，亲要继续努力，我为你加油');
+                $('#gift_img').attr('src','themes/365chi/topic/images/lottery/g2.gif');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 5:
+                $('#gift_text').html('恭喜您，获得了北大荒芳临豆乳，该商品已经以0元加入到您的购物车，您也可以在个人中心的我的提货券中看到它！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 6:
+                $('#gift_text').html('恭喜您，获得了5元优惠卷，满百后可使用，您可以在个人中心的我的优惠券中看到此券，也可以在结算时点击优惠券来使用！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 7:
+                $('#gift_text').html('恭喜您，获得了北大荒有机玉米糁，该商品已经以0元加入到您的购物车，您也可以在个人中心的我的提货券中看到它！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 8:
+                $('#gift_text').html('恭喜您，获得了10元优惠卷，满百后可使用，您可以在个人中心的我的优惠券中看到此券，也可以在结算时点击优惠券来使用！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 9:
+                $('#gift_text').html('恭喜您，获得了五星胡蜂蜜，该商品已经以0元加入到您的购物车，您也可以在个人中心的我的提货券中看到它！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+            case 10:
+                $('#gift_text').html('恭喜您，获得了好朋友券，您可以发给好朋友，一起来抽奖！');
+                $('#gift_btn').click(function(){ UI.Share.sinaT(); closeLotteryDialog();});
+                break;
+            case 11:
+                $('#gift_text').html('恭喜您，获得了长白山笨炒松子，该商品已经以0元加入到您的购物车，您也可以在个人中心的我的提货券中看到它！');
+                $('#gift_btn').click(function(){ closeLotteryDialog(); });
+                break;
+        }
+        
+       openLotteryDialog();
+      
+        
+        
+      
+    }
+    //查看获奖人员
+    function viewResponse(res)
+    {
+        if(res.code == 0)
+        {
+            $('#marquee').html(res.content);  
+        }
+       
+    }
+    $.get('topic_lottery.php','action=view',viewResponse,'json');   
+    
+
+
+    $(board).click( function(){
+          if(!GUserInfo.isLogin)
+         {
+             show_login_dialog();
+         }
+         else{
+             if(!is_start)
+                $.get('topic_lottery.php','action=do',doResponse,'json');   
+         }
+});
+
+
+})
+
+</script>
+</html>
+
+
+
+
+
+
+
+
+
+

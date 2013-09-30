@@ -1,0 +1,40 @@
+@charset "utf-8";
+*{margin: 0;padding: 0; font-family: "宋体",Tahoma,Arial;}
+html,body{height: 100%; font-size: 12px;}
+a{ cursor: pointer;} 
+img{border: none;}
+.top_area,.lottery{margin: 0 auto;}
+.top_area{width: 1000px;position: relative;}
+.top_area .top{width: 250px; height: 243px; float: left;}
+.jiangpin{position: absolute;}
+.j1{left:505px; top: 400px; }
+.j2{left:378px; top:633px;}
+.j3{left:478px; top:815px;}
+.j4{left:728px; top:820px;}
+.j5{left:857px; top:596px;}
+.zouni{height:292px;left: 610px; top: 516px;width:116px; cursor: pointer;}
+.lottery{width: 1000px; height: 620px; background-color:#f5f1c2; padding-top: 10px;  }
+
+.l_namelist{width: 202px; height: 620px;margin-left: 6px;_margin-left: 3px;  float: left;}
+.l_namelist_t{width: 202px; height:58px;}
+.l_namelist_c{width: 195px;height: 560px; margin-left: 3px;_margin-left: 2px;border: 2px solid #a2a49a; border-left-width: 1px; background-color: #f3cee1;}
+marquee{width:182px; margin-left: 10px; height: 500px;}
+.marquee_c{margin-bottom: 15px; color: #969696;}
+.marquee_c span{color: #ea5ea3;}
+
+
+.bibei{width:770px; height: 624px; float: left; margin-left: 17px; }
+.bibei_t,.bibei_c{width: 770px; }
+.bibei_t{height: 58px;}
+.bibei_c{height: 100px;}
+.bibei_h{width: 177px; height: 265px; background-color: white; float: left; margin-top: 12px; margin-right:15px;position: relative;}
+.bibei_p{width: 157px; height: 154px; margin: 0 auto;margin-top: 10px;  }
+.bibei_name{width: 166px; height: 41px; text-align: center; margin:10px auto; line-height: 20px;}
+.bibei_name span{display: block;}
+.bibei_name span.r{color: red;}
+.buy_button{width: 114px; height: 28px; margin: 0px auto; }
+
+.dacan_t,.dacan_c{width: 983px; margin: 0 auto; }
+#show_gift{text-align: center;display: none}
+#gift_text{margin-top:10px;margin-bottom: 10px;font-size: 14px; color: #E61F79;font-family: Verdana,Geneva,sans-serif;font-weight: bold;}
+

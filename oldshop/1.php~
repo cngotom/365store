@@ -1,0 +1,11 @@
+<?php
+var_dump($_SERVER);
+$zero = 0;
+$res = ($zero === "error2" );
+var_dump($res);
+if($res)
+{
+    
+    echo 123;
+}
+?>

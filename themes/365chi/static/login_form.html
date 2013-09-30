@@ -1,0 +1,86 @@
+<style>
+.onShow,.onError,.onFocus,.onCorrect{
+	padding:2px 20px 0;
+	width:150px;
+
+              display:inline-block;
+              
+}
+#tabs-1,#tabs-2{ 
+     padding-left:40px;
+}
+
+</style>
+    <div id="tabs">
+        <ul>
+            <li><a href="#tabs-1">登录</a></li>
+            <li><a href="#tabs-2">注册</a></li>
+        </ul>
+        <!-- 登录 -->
+        <div id="tabs-1" >
+                <div>	            
+                    <div class="p_item"><label class="itemtitle">Email：</label>
+                        <input type="text" autocomplete="off" tabindex="1" name="email" id="loginEmail" class="txt">
+                        <span class="emailTip" id="loginEmailTip"></span></div>           
+                    
+                    <div class="p_item" style="margin:7px 0">
+                      <label class="itemtitle">密码：</label>
+                        <input type="password" tabindex="2" name="loginpassword" id="loginpassword" class="txt">                    
+                        <span class="pspt_msg" id="loginpasswordTip"></span></div>                
+                    <div class="p_item p_btn" style="margin:30px 0px 0px 50px">
+                        <div id="loginbtn" class="lm_btn1" style="width:98px;float:left;">
+                            <div class="btncont">登录</div>
+                            <div class="btnright"></div>                              
+                        </div>
+                        <div  style="padding:10px 120px"><a class="c_g" target="_blank" href="#">忘记密码？</a></div>
+                    </div>               
+                    <div>
+                        <div style="margin-left:20px;margin-top:43px;color:#999;">推荐您使用下列账号快捷登录：</div>
+                        <ul class="lhdl">
+                            <li>
+                                <a class="dlqq a3" onclick="toQzoneLogin();" href="javascript:void(0);">QQ</a>
+                            </li>
+                            <li>
+                                <a onclick="" href="javascript:void(0);" class="dlkx a3">开心</a>
+                            </li>
+                            <li>
+                                <a onclick="" href="javascript:void(0)" class="dlrr a3">人人</a>
+                            </li>
+                        </ul>                                
+                    </div>
+                </div>
+        </div>
+        <!-- 注册 -->
+        <div id="tabs-2">
+				<p class="p_item" ><label class="itemtitle">Email：</label>
+                    <input type="text" autocomplete="off" tabindex="1" name="email" id="email" class="txt">
+                    <span class="pspt_msg" id="emailTip"></span></p>      
+                         
+                <p class="p_item" style=";margin:7px 0">
+                  <label class="itemtitle">昵称：</label>
+                	<input type="text" tabindex="2" name="username" id="username" class="txt">
+                	<span class="pspt_msg" id="usernameTip"></span></p>                   
+                
+                <p class="p_item" style="margin:7px 0">
+                  <label class="itemtitle">密码：</label>
+                	<input type="password" tabindex="2" name="password1" id="password1" class="txt">
+                    <span class="pspt_msg" id="password1Tip"></span></p>    
+                    
+                <p class="p_item" style="margin:7px 0">
+                  <label class="itemtitle">确认密码：</label>
+                	<input type="password" tabindex="2" name="password2" id="password2" class="txt">
+                    <span class="pspt_msg" id="password2Tip"></span></p>                         
+                    
+                 <div style="margin:7px 0">
+                 	<input id="agreement"  type="checkbox" checked="checked" class="agreement" name="agreement">
+                 	我已阅读并同意《365会员条款》
+                 </div>  
+                       
+				<div class="p_item p_btn" style="margin:15px 20px 0px 50px">
+                	<div id="regBtn" class="lm_btn1">
+                        <div class="btncont">完成</div>
+						<div class="btnright"></div>                        
+                    </div></div>               
+                <div>                                                            
+        </div>
+    </div>

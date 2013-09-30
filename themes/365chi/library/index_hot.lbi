@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods} -->
+                  <div class="index_group_mt clearfix">
+                        <h3 title="精品专区" class="f_l"> </h3>
+                        <a class="more" href="search.php?intro=hot">更多&nbsp;&gt;&gt;</a>
+                    </div>
+                    <div id="index_group_box">
+                        
+                                
+                                <div class="index_group_box_DIV" id="div0" style="display: show;">
+                                    
+                                    <!-- {foreach from=$hot_goods item=goods}--> 
+                                    <div class="group_item">
+                                        <div class="g_pic">
+                                            <a title="{$goods.name}" target="_blank" href="{$goods.url}">
+                                                <img width="165" height="165" title="{$goods.name}" alt="{$goods.name}" src="{$goods.goods_img}" id="goodsimg_{$goods.id}" class="ajax-modify-pic"></a></div>
+                                                    <div class="item_price">
+                                    <i class="market_s">{$goods.market_price}</i>&nbsp;<b class="shop_s">{$goods.shop_price}</b></div>
+                                        <div class="g_name">
+                                            <a title="{$goods.name}" target="_blank" href="{$goods.url}">
+                                                {$goods.short_name}</a>
+                                        </div>
+                                    </div>
+                                    <!-- {/foreach}-->
+                                    
+                                </div>
+            
+                    </div>
+<!-- {/if} -->

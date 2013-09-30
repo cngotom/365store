@@ -1,0 +1,220 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+
+    <div class="index2012_bannerl">
+      <div class="index2012_banner1_cont" id="screen">
+        <div id="screenList" class="hom_ppt"> 
+            <a href="#" style="display: inline;"><img src="themes/365chi/images/green/index/slide/index_top_1.jpg" style="" width="765" height="330"></a>
+            <a target="_blank" href="/topic.php?topic_id=3" style="display: none;"><img src="themes/365chi/images/green/index/slide/index_top_2.jpg" style="" width="765" height="330"></a>
+            <a target="_blank" href="http://www.xinfuka.net" style="display: none;"><img src="themes/365chi/images/green/index/slide/index_top_3.jpg" style="" width="765" height="330"></a>
+            <a target="_blank" href="http://www.xinfuka.net" style="display: none;"><img src="themes/365chi/images/green/index/slide/index_top_4.jpg" style="" width="765" height="330"></a>
+            <a target="_blank" href="http://www.xinfuka.net" style="display: none;"><img src="themes/365chi/images/green/index/slide/index_top_5.jpg" style="" width="765" height="330"></a>
+            <a target="_blank" href="http://www.xinfuka.net" style="display: none;"><img src="themes/365chi/images/green/index/slide/index_top_6.jpg" style="" width="765" height="330"></a>
+
+            <a target="_blank" href="http://www.365chi.com/search.php?keywords=%E5%8C%97%E5%A4%A7%E8%8D%92" style="display: inline;"><img src="themes/365chi/images/green/index/slide/index_top_7.jpg" style="" width="765" height="330"></a>
+
+        </div>
+       <!--
+        <div class="index2012_page_banner">
+          <p class="index2012_pagel_banne" id="flash_left_button" ><a href="javascript:void(0);" onclick="bigCenterScreen.clickPre();"><img src="tootoo_files/index2012_page9.jpg" style=""></a></p>
+          <p class="index2012_pager_banne" id="flash_right_button" ><a href="javascript:void(0);" onclick="bigCenterScreen.clickNext();"><img src="tootoo_files/index2012_page10.jpg" style=""></a></p>
+        </div>
+       -->
+      </div>
+      <div class="index2012_banner1_list">
+
+        <ul class="index2012_banner1_listcont" id="preview">
+          <li class="" onclick="bigCenterScreen.clickAny(0);" style="display: list-item;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_1.jpg" style="" width="150" height="70"></a></li>
+          <li onclick="bigCenterScreen.clickAny(1);" class="" style="display: list-item;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_5.jpg" style="" width="150" height="70"></a></li>
+          <li onclick="bigCenterScreen.clickAny(2);" class="" style="display: list-item;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_3.jpg" style="" width="150" height="70"></a></li>
+           <li onclick="bigCenterScreen.clickAny(3);" class="" style="display: list-item;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_4.jpg" style="" width="150" height="70"></a></li>
+            <li onclick="bigCenterScreen.clickAny(4);" class="" style="display: none;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_5.jpg" style="" width="150" height="70"></a></li>
+             <li onclick="bigCenterScreen.clickAny(5);" class="" style="display: none;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_6.jpg" style="" width="150" height="70"></a></li>
+          <li onclick="bigCenterScreen.clickAny(6);" class="cutt_banner1_listcont" style="display: none;"><a href="javascript:void(0);"><img src="themes/365chi/images/green/index/slide/index_topic_small_7.jpg" style="" width="150" height="70"></a></li>
+      
+        </ul>
+ 
+      </div>
+    </div>
+   
+
+
+
+
+<script class="privateJs" type="text/javascript">
+        
+        
+//new对象->init->bind
+var powerPoint = function(objName)
+{
+	this.objName=objName;
+	this.indexOn;//选中游标
+	this.indexFrom;//翻屏游标
+	this.viewDom;//大图DOM
+	this.preViewDom;//缩略图DOM
+	this.preSelectedClass;//小图选中时候的class样式                                                      
+	this.preViewNum;//小图一屏显示数
+	
+	this.clickPre=function()
+	{   
+		clearInterval(this.extime);              
+		if(this.indexOn>0)
+		{                      
+			this.indexOn--;
+			$(this.viewDom[this.indexOn]).fadeIn().siblings().hide();
+			$(this.preViewDom[this.indexOn]).addClass(this.preSelectedClass).siblings().removeClass(this.preSelectedClass);
+			if(this.indexOn<this.indexFrom)
+			{
+				this.indexFrom--;
+				this.refurPreView();  
+			}          
+			if(bigCenterScreen.indexOn==0)
+				$('#flash_left_button').hide();
+
+		}          
+		clearInterval(this.extime);                                             
+		if(this.isAuto)
+		{    
+			//用eval(string)都无法解除js对象跟dom对象的冲突。须保证页面中只有这一个蹦的。
+			autoRunObj = this;                                                          
+			this.extime=setInterval(autoRunObj.autoRun,5000);                    
+		}
+	}
+	
+	this.clickNext=function()
+	{   
+		clearInterval(this.extime);  
+		if(this.indexOn<this.preViewDom.length-1)
+		{
+			clearInterval(this.extime);   
+			this.indexOn++;
+			$(this.viewDom[this.indexOn]).fadeIn().siblings().hide();
+			$(this.preViewDom[this.indexOn]).addClass(this.preSelectedClass).siblings().removeClass(this.preSelectedClass);  
+			if(this.indexOn>(this.indexFrom+this.preViewNum-1))
+			{
+				this.indexFrom++;
+				this.refurPreView();  
+			}           
+			if(bigCenterScreen.indexOn==bigCenterScreen.viewDom.length-1)  
+				$('#flash_right_button').hide();  
+		
+		}              
+		clearInterval(this.extime);                                             
+		if(this.isAuto)
+		{    
+			//用eval(string)都无法解除js对象跟dom对象的冲突。须保证页面中只有这一个蹦的。
+			autoRunObj = this;                                                          
+			this.extime=setInterval(autoRunObj.autoRun,5000);                    
+		}
+	}  
+	this.clickAny = function(i)
+	{               
+		clearInterval(this.extime);  
+		
+		this.indexOn = i;
+		$(this.viewDom[this.indexOn]).fadeIn().siblings().hide();
+		$(this.preViewDom[this.indexOn]).addClass(this.preSelectedClass).siblings().removeClass(this.preSelectedClass);                   
+		
+		if(this.isAuto)
+		{    
+			//用eval(string)都无法解除js对象跟dom对象的冲突。须保证页面中只有这一个蹦的。
+			autoRunObj = this;                                                          
+			this.extime=setInterval(autoRunObj.autoRun,5000);                    
+		}                      
+		
+	}
+	
+	this.refurPreView=function()
+	{               
+		for(var i=0;i<this.indexFrom;i++)
+		{ 
+			$(this.preViewDom[i]).hide();                        
+		}
+		for(var i=this.indexFrom;i<this.indexFrom+this.preViewNum;i++)
+		{  
+			$(this.preViewDom[i]).show();                        
+		}                
+		for(var i=this.indexFrom+this.preViewNum;i<this.preViewDom.length;i++)
+		{
+			$(this.preViewDom[i]).hide();   
+		}                                    
+	}
+	
+	this.init=function(viewDom , preViewDom , preSelectedClass , preViewNum , preButton , nextButton , isAuto)
+	{
+		this.indexOn=0;
+		this.indexFrom=0;
+		this.viewDom=$(viewDom);
+		this.preViewDom=$(preViewDom);   
+		this.preSelectedClass=preSelectedClass;
+		this.preViewNum=preViewNum;      
+		this.preButton=preButton;
+		this.nextButton=nextButton;
+		this.isAuto=isAuto;
+		this.refurPreView();    
+		$(this.viewDom[this.indexOn]).show().siblings().hide();
+		$(this.preViewDom[this.indexOn]).addClass(this.preSelectedClass).siblings().removeClass(this.preSelectedClass);                 
+		clearInterval(this.extime);                                             
+		if(this.isAuto)
+		{    
+			//用eval(string)都无法解除js对象跟dom对象的冲突。须保证页面中只有这一个蹦的。
+			autoRunObj = this;                                                          
+			this.extime=setInterval(autoRunObj.autoRun,5000);                    
+		}
+		clickPreStr = this.objName+'.clickPre();'; 
+		clickNextStr = this.objName+'.clickNext();';
+		clickAnyStr =  this.objName+'.clickAny';
+		
+//                var name=navigator.appName;
+//                if(name=="Microsoft Internet Explorer"){
+//                    $(this.preButton).attr({"href":"javascript:"+clickPreStr+";void(0);"});               
+//                    $(this.nextButton).attr({"href":"javascript:"+clickNextStr+";void(0);"});             
+//                }else{
+			$(this.preButton).attr({"onClick":clickPreStr});                         
+			$(this.nextButton).attr({"onClick":clickNextStr});                                            
+//                }  
+		  
+		  this.preViewDom.each(function(i){  
+			  $(this).attr('onClick',clickAnyStr+'('+i+');');  
+		  });                                    
+															
+	}           
+	this.autoRun=function()//自动跑
+	{                           
+		if(autoRunObj.indexOn<(autoRunObj.preViewDom.length-1))
+		{
+			autoRunObj.indexOn++;
+			$(autoRunObj.viewDom[autoRunObj.indexOn]).fadeIn().siblings().hide();
+			$(autoRunObj.preViewDom[autoRunObj.indexOn]).addClass(autoRunObj.preSelectedClass).siblings().removeClass(autoRunObj.preSelectedClass);  
+			if(autoRunObj.indexOn>autoRunObj.indexFrom+autoRunObj.preViewNum-1)
+			{
+				autoRunObj.indexFrom++;
+				autoRunObj.refurPreView();  
+			}                        
+		}
+		else
+		{
+			autoRunObj.indexOn=0;
+			autoRunObj.indexFrom=0;
+			$(autoRunObj.viewDom[autoRunObj.indexOn]).fadeIn().siblings().hide();
+			$(autoRunObj.preViewDom[autoRunObj.indexOn]).addClass(autoRunObj.preSelectedClass).siblings().removeClass(autoRunObj.preSelectedClass);                     
+			autoRunObj.refurPreView();                     
+		}
+		if(bigCenterScreen.indexOn==bigCenterScreen.viewDom.length-1)
+			$('#flash_right_button').hide();           
+		if(bigCenterScreen.indexOn==0)
+			$('#flash_left_button').hide();                     
+		
+	}                        
+}
+
+
+var bigCenterScreen = new powerPoint('bigCenterScreen');
+bigCenterScreen.init("#screenList a","#preview li","cutt_banner1_listcont",4,"#preButton","#nextButton",true);
+
+$('#flash_left_button a').attr({"onClick":'bigCenterScreen.clickPre();'});                   
+$('#flash_right_button a').attr({"onClick":'bigCenterScreen.clickNext();'});                                            
+</script>                      
+        
+      
+

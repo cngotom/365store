@@ -1,0 +1,29 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!--{if $helps}-->
+<div class="foot_h" >
+    
+                  <!-- {foreach from=$helps item=cat name=foo} -->
+                  <div id="foot_help_item">
+                    	<div id="foot_help_item_wrap">
+                            <span class="foot_help_icon foot_icon_{$smarty.foreach.foo.index}"></span>
+                            <span class="foot_help_item_split"></span>
+                            <span class="foot_help_item_text">
+                                <ul>
+                                    <li class="foot_item_first"> {$cat.cat_name|escape:html} </li>
+                                    <!-- {foreach from=$cat.article item=item} -->
+                                    <li> <a href="{$item.url}" title="{$item.title}">{$item.title}</a> </li>
+                                    <!-- {/foreach} -->
+                                </ul>
+                            </span>
+                       </div>
+                    </div>      
+                <!-- {/foreach} -->
+  </div>
+            
+            
+            
+            
+            
+            
+
+<!--{/if}-->

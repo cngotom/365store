@@ -1,0 +1,50 @@
+
+    <style> 
+        .p_item input {
+            width: 12px;
+        }
+        #subscribe_no{
+            width:156px;
+         
+          
+        }
+        #subscribe{
+            display:none;
+        }
+        div.p_item {
+            padding-left:50px;
+        }
+        label.itemtitle {
+            width: 60px;
+            display: inline-block;
+        }
+        .pspt_msg{
+            color:red;
+        }
+    </style>
+  
+
+    <form method="post"   name="subs_type" >
+    	<div class="p_item" style="margin:14px 0">
+             <label class="itemtitle">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</label>
+              <input type="radio" name="type" value="0" checked="checked">手机订阅&nbsp;
+              	 <input type="radio" name="type" value="1">邮件订阅&nbsp;
+                <span class="pspt_msg type_error"></span>
+        </div>          
+        <div class="p_item" style="margin:14px 0">
+                      <label class="address">手机号码：</label>
+                        <input type="text" tabindex="2" name="subscribe_no" id="subscribe_no" class="txt">                    
+                        <span class="pspt_msg  address_error"></span>
+        </div>           
+        <div class="p_item p_btn" style="margin:30px 20px 0px 80px">
+                        <div  class="lm_btn1 loginbtn" style="width:98px;float:left;">
+                            <div class="btncont">订阅</div>
+                            <div class="btnright"></div>                              
+                        </div>
+                    
+         </div>     
+     
+    
+    </form>
+    
+

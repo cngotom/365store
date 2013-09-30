@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link href="../style_green.css" rel="stylesheet" type="text/css" />
+    <link href="http://www.365chi.com/js/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://www.365chi.com/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="http://www.365chi.com/js/jquery-ui-1.8.18.custom.min.js"></script>
+    <style> 
+        .p_item input {
+            width: 12px;
+        }
+        #subscribe_no{
+            width:156px;
+         
+          
+        }
+        #subscribe{
+            
+        }
+        div.p_item {
+            padding-left:50px;
+        }
+        label.itemtitle {
+            width: 60px;
+            display: inline-block;
+        }
+        .pspt_msg{
+            color:red;
+        }
+    </style>
+    <script> 
+        $(function(){
+            function doReminder(eventid,eventtime)
+            {
+                $('#subscribe').dialog({
+                                        height: 190,
+                                        width:454,
+                                        modal: true
+                                })
+
+                $('#loginbtn').click(function(){
+                 var no = $('#subscribe_no').val();
+                //clear error
+                $('.pspt_msg').html('');
+
+                    if($('input[name="type"]:checked').val()  )
+                    {
+
+                           
+                            //手机订阅
+                            if( $('input[name="type"]:checked').val() == "0")
+                            {
+
+                                reg=/^0{0,1}(13[0-9]|145|15[7-9]|153|156|18[0-9])[0-9]{8}$/i;
+                                if(!reg.test(no)){  
+
+                                    $('#type_error').html('请输入正确的手机号');
+                                    return;
+                                }
+
+                            }
+                            else{
+                                reg=/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]+$/;   
+                                if(!reg.test(no)){        
+
+                                    $('#type_error').html('请输入正确的邮箱地址');
+                                     return;
+                                }
+
+
+                            }
+
+
+                    }
+                    else{
+                        $('#type_error').html('请选择类型');
+                         return;    
+                    }
+
+                    var data = {
+                       no_type:$('input[name="type"]:checked').val() ,
+                        no:no,
+                        act:'add_reminder',
+                        event_id:eventid,
+                        event_time:eventtime              
+                    };
+
+                    var url = "/subscribe.php";
+                    //form ok
+                    $.post(url, data, function(){
+
+                    }, "json");
+
+                })
+            }
+            
+            doReminder(5,'1988-07-15');
+        });
+    </script>
+</head>
+    
+<body>
+<div id="subscribe"  style="display:none">
+    <form method="post"   name="subs_type" >
+    	<div class="p_item" style="margin:14px 0">
+             <label class="itemtitle">类&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;型：</label>
+              <input type="radio" name="type" value="0" checked="checked">手机订阅&nbsp;
+              	 <input type="radio" name="type" value="1">邮件订阅&nbsp;
+                <span class="pspt_msg" id="type_error"></span>
+        </div>          
+        <div class="p_item" style="margin:14px 0">
+                      <label class="address">邮箱地址：</label>
+                        <input type="text" tabindex="2" name="subscribe_no" id="subscribe_no" class="txt">                    
+                        <span class="pspt_msg" id="address_error"></span>
+        </div>           
+        <div class="p_item p_btn" style="margin:30px 20px 0px 80px">
+                        <div id="loginbtn" class="lm_btn1" style="width:98px;float:left;">
+                            <div class="btncont">订阅</div>
+                            <div class="btnright"></div>                              
+                        </div>
+                    
+         </div>     
+     
+    
+    </form>
+    
+
+</div>
+        
+    </body>
+    
+</html>

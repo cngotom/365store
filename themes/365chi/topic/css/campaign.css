@@ -1,0 +1,21 @@
+/* 
+    Document   : campaign
+    Created on : 2012-11-28, 8:34:04
+    Author     : Administrator
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+* { margin: 0;padding: 0; }
+img{ display:block;border: none; }
+a{ cursor: pointer;}
+.clear{ clear: left;}
+.w{ margin: 0 auto; width: 1200px;height: 1890px;;position: relative;}
+.main{width: 300px;height: 189px;float: left; }
+.sales,.more,.share,.miaosha,.time{position: absolute;}
+.sales{top: 719px; left:457px; }
+.more{left:116px; top: 1750px;}
+.share{left:925px; top: 1346px;}
+.miaosha{left:609px; top: 1467px;}
+.time{left: 747px;top: 1694px;}
+.t{width: 58px;height: 59px; line-height: 59px; text-align: center; background:url(../images/time.gif); float: left; color: white;font-size: 60px;}

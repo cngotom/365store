@@ -1,0 +1,44 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<h6><span>{$lang.consignee_info}</span>&nbsp;<a href="javascript:showForm_consignee(this)" class="f6">[{$lang.modify}]</a></h6>
+      <div class="middle">
+      <table >
+            <tr>
+              <td  align="right" style="width:80px;">{$lang.consignee_name}:</td>
+              <td >{$consignee.consignee|escape}</td>
+            </tr>
+            
+    
+            <tr>
+              <td  align="right" style="width:80px;">{$lang.detailed_address}:</td>
+              <td >{$consignee.address_name|escape} </td>
+            </tr>
+            <tr>
+              <td  align="right" style="width:80px;">{$lang.postalcode}:</td>
+              <td >{$consignee.zipcode|escape}</td>
+            </tr>
+ 
+            <tr>  
+              <td  align="right" style="width:80px;">{$lang.backup_phone}:</td>
+              <td >{$consignee.mobile|escape}</td>
+            </tr>
+            <tr>
+              <td  align="right" style="width:80px;">{$lang.phone}:</td>
+              <td >{$consignee.tel} </td>
+            </tr>
+            <tr>
+              <td  align="right" style="width:80px;">{$lang.email_address}:</td>
+              <td >{$consignee.email|escape}</td>
+            </tr>
+    
+             <!-- {if 0 &&  $total.real_goods_count gt 0} -->
+            <tr>
+              <td  align="right" style="width:80px;">{$lang.sign_building}:</td>
+              <td >{$consignee.sign_building|escape} </td>
+            </tr>
+            <tr>  
+              <td  align="right" style="width:80px;">{$lang.deliver_goods_time}:</td>
+              <td >{$consignee.best_time|escape}</td>
+            </tr>
+            <!-- {/if} -->
+          </table>
+      </div>

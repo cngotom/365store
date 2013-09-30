@@ -1,0 +1,51 @@
+<div class="o_write">
+<h6><span>{$lang.shippay_methods}</span>&nbsp;<a href="javascript:close_payTypeAndShip(this)" class="f6">[关闭]</a></h6>
+<div class="middle">
+        <ul  id="paymentTable" class="payandshiptable">
+            <li>
+                <span  style="width:240px;text-align: left;padding-left:24px;"> <strong>{$lang.payment_method}</strong></span>
+                <span ><strong>{$lang.describe}</strong></span>
+            </li>
+            <!-- {foreach from=$payment_list item=payment} -->
+            <!-- 循环支付方式 -->
+            <li>
+              <span  style="width:240px;text-align: left;padding-left:24px;"><input id="IdPaymentType{$payment.pay_id}" type="radio" name="payment" value="{$payment.pay_id}" {if $order.pay_id eq $payment.pay_id}checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this,'pay_show_'+{$payment.pay_id}); " {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"{/if}/><label for="IdPaymentType{$payment.pay_id}"  style="margin-left:2px;">{$payment.pay_name}</label></span>
+              <span class="gray" >{$payment.pay_desc}</span>
+            </li>
+            <!-- {if payment.pay_show}-->
+            <li id="pay_show_{$payment.pay_id}" style="display: none;padding-left:20px;" class="clearfix"> 
+              <!--  {$payment.pay_show} -->
+            </li>
+            <!-- {/if} -->
+            <!-- {/foreach} 循环支付方式 -->
+          </ul>
+             <h6><span>{$lang.shipping_method}</span></h6>
+          <ul  id="shippingTable" class="payandshiptable">
+            <li>
+
+              <span  style="width:240px;text-align: left;padding-left:24px;">{$lang.name}</span>
+              <span  style="width:200px;text-align: left;">{$lang.fee}</span>
+              <span>{$lang.describe}</span>
+            </li>
+            <!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
+            <li>
+              <span  style="width:240px;text-align: left;padding-left:24px;"><input name="shipping" type="radio" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onclick="selectShipping(this)" />
+             
+              {$shipping.shipping_name}</span>
+              <span    style="width:200px;text-align: left;" >{$shipping.real_fee}&nbsp;元</span>
+              <span class="gray">{$shipping.shipping_desc}</span>
+            
+            </li>
+            <!-- {/foreach} 循环配送方式 -->
+
+          </ul>
+          <div class="footer">
+            <input type="button" onclick="savePart_payAndShipping(this)" value="保存支付方式和配送方式"  class="btn">
+         </div>    
+    </div>
+    
+    <div style="display: none">
+        <input id="payType_IdPaymentType" type="text" value="{$order.pay_id}">
+        <input id="payType_IdShipmentType"  type="text" value="{$order.shipping_id}">
+    </div>
+</div>

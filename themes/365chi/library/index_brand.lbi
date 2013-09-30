@@ -1,0 +1,25 @@
+<meta http-equiv="Content-Type" conetent="text/html; charset=utf-8">
+<!-- {if $brand_list} -->
+<div class="box">
+     <div class="mt"><span>合作品牌</span></div>
+  <div class="mc clearfix brandList">
+  <ul class="clearfix">
+        <!-- {foreach from=$brand_list item=brand name="brand_foreach"} -->
+      
+            {if $smarty.foreach.brand_foreach.index <= 8}
+            <li class="index_brand_item">
+                <!-- {if $brand.brand_logo} -->
+                    <a href="{$brand.url}"><img src="data/brandlogo/{$brand.brand_logo}" alt="{$brand.brand_name|escape:html} ({$brand.goods_num})" /></a>
+                <!-- {else} -->
+                    <a href="{$brand.url}">{$brand.brand_name|escape:html} {if $brand.goods_num}{/if}</a>
+                <!-- {/if} -->
+            </li>
+            <!-- {/if} -->		
+        <!-- {/foreach} -->
+    </ul>
+  </div>
+ </div>
+
+
+
+<!-- {/if} -->

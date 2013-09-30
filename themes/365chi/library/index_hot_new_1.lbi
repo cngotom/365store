@@ -1,0 +1,78 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $hot_goods} -->
+<div style="float:left;width: 740px;">
+    <div>
+	<div id="index_hot_head">
+    </div>
+    <div id="index_hot_products">
+
+        <!--{foreach from=$new_goods item=goods name="foo"}-->
+          {if $smarty.foreach.foo.index <= 3}
+        <div class="index_hot_product">
+            <div class="index_hot_product_image"> 
+                <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" width="107px" height="107px" /></a>
+                <span class="cover_new"></span><span class="cover_best"></span>
+            </div>
+            <div class="index_hot_product_text"> <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_style_name}</a><br>   
+                <!-- {if $goods.promote_price neq ""} -->
+                {$goods.promote_price}
+                <!-- {else}-->
+                {$goods.shop_price}
+                <!--{/if}--> /袋 
+            </div>
+        </div>
+          {/if}
+        <!--{/foreach}-->
+    	
+    </div>
+    <div id="index_promote_head">
+    
+    </div>
+    <div id="index_promote_head2">
+    
+    </div>
+    <div id="index_promote_1"></div>
+    <div id="index_promote_2"> 
+    	<div id="index_promote_2_1"></div>
+        <div id="index_promote_2_2">
+            <a title="{$hot_goods_left.name}" target="_blank" href="{$hot_goods_left.url}">{$hot_goods_left.short_name|escape:html}</a>
+        </div>
+        <div id="index_promote_2_3">
+            现价{$hot_goods_left.shop_price}
+        </div>
+        <div id="index_promote_2_4">
+            <a href="{$hot_goods_left.url}"><img height="102" width="103"  src="{$hot_goods_left.goods_img}" alt="{$hot_goods_left.name|escape:html}" title="{$hot_goods_left.name|escape:html}"></a>
+        </div>
+    </div>
+    <div id="index_promote_4"></div>
+     <div id="index_promote_5"> 
+    	<div id="index_promote_5_1"></div>
+        <div id="index_promote_5_2">
+            <p style="font-size: 22px;color:#373434;line-height: 24px;  text-spacing: 3px;text-align: center;margin-bottom: 30px;" >  {$hot_goods_center.name|escape:html} </p>
+          
+            <p style="font-size: 22px;color:#ea0863;text-align: center;"> 现价{$hot_goods_center.shop_price}</p>
+        </div>
+    </div>
+    <div id="index_promote_6">
+         <a href="{$hot_goods_center.url}"><img height="150" width="150"  src="{$hot_goods_center.goods_img}" alt="{$hot_goods_center.name|escape:html}" title="{$hot_goods_center.name|escape:html}"></a>
+    </div>
+    <div id="index_promote_7"></div>
+    <div id="index_promote_8"> 
+    	<div id="index_promote_8_1"></div>
+         <div id="index_promote_8_2">
+            <a title="{$hot_goods_right.name}" target="_blank" href="{$hot_goods_right.url}">{$hot_goods_right.short_name|escape:html}</a>
+        </div>
+        <div id="index_promote_8_3">
+            现价{$hot_goods_right.shop_price}
+        </div>
+        <div id="index_promote_8_4">
+             <a href="{$hot_goods_right.url}"><img height="102" width="103"  src="{$hot_goods_right.goods_img}" alt="{$hot_goods_right.name|escape:html}" title="{$hot_goods_right.name|escape:html}"></a>
+        </div>
+    </div>
+    <div id="index_promote_9"></div>
+    
+    <div id="index_promote_tail"> </div>
+
+</div>
+</div>
+<!-- {/if} -->

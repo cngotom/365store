@@ -1,0 +1,62 @@
+[12-04-15 03:59:43]
+Array
+(
+    [sel_x] => 10
+    [sel_y] => 10
+    [sel_w] => 409
+    [sel_h] => 490
+    [img_w] => 419
+    [img_h] => 500
+    [id] => pic1
+    [filename] => \\images\\temp\\8c561068-2e28-7036-5b05-fe6b84d9ea25.jpg
+)
+
+Array
+(
+    [w] => 1116
+    [h] => 1333
+)
+
+Array
+(
+    [x] => 26.66
+    [y] => 26.66
+    [w] => 1090.394
+    [h] => 1306.34
+)
+
+info      :radio 2.666
+srcimg    :x 0 	y 0 	w 1116 	h 1333
+userselect:x 10 	y 10 	w 409 	h 490
+output_img:x 0 	y 0 	w 1090.394 	h 1306.34
+[12-04-15 10:24:50]
+Array
+(
+    [sel_x] => 10
+    [sel_y] => 10
+    [sel_w] => 407
+    [sel_h] => 490
+    [img_w] => 417
+    [img_h] => 500
+    [id] => pic1
+    [filename] => /images/temp/F_8c561068-2e28-7036-5b05-fe6b84d9ea25.jpg
+)
+
+Array
+(
+    [w] => 1090
+    [h] => 1306
+)
+
+Array
+(
+    [x] => 26.12
+    [y] => 26.12
+    [w] => 1063.084
+    [h] => 1279.88
+)
+
+info      :radio 2.612
+srcimg    :x 0 	y 0 	w 1090 	h 1306
+userselect:x 10 	y 10 	w 407 	h 490
+output_img:x 0 	y 0 	w 1063.084 	h 1279.88

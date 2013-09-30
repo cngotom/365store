@@ -1,0 +1,291 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- {if !$is_index} -->
+<div id="list_menu">
+    <ul>
+            <!--{foreach from=$categories item=cat}-->
+                    <!-- {if $cat.id eq $parent_id || $cat.id eq $category } -->
+                    <li class="selected"><a class="main_cate" href="{$cat.url}">{$cat.name|escape:html}</a>
+                        <div style="display:display;" id="cate_list"  >
+                                <!--{foreach from=$cat.cat_id item=child}-->
+                                                <span  <!-- {if $child.id eq $category } --> class='on'<!--{/if}--> ><a  href="{$child.url}">{$child.name|escape:html}</a></span>
+                                    <!--{/foreach}-->
+                        </div>
+                    </li>
+                    <!-- {else} -->
+                       <li class="selectedno"><a class="main_cate" href="{$cat.url}">{$cat.name|escape:html}</a>
+                        <div style="display:none;" id="cate_list">
+                                <!--{foreach from=$cat.cat_id item=child}-->
+                                                <span class=""><a href="{$child.url}">{$child.name|escape:html}</a></span>
+                                 <!--{/foreach}-->
+                        </div>
+                    </li>
+                    <!--{/if}-->
+        <!--{/foreach}--> 
+    </ul>
+</div>
+
+<!--主页的菜单 -->
+<!-- {else} -->
+<div class="menu fl">
+        <ul style="margin-top:15px; " id="menu_ulist">
+                <!--{foreach from=$categories item=cat name=foo}-->
+                <li class="s{$smarty.foreach.foo.iteration}">
+                   <a href="{$cat.url}"  index="{$smarty.foreach.foo.index}">{$cat.name|escape:html}</a>
+                </li>
+                <!--{/foreach}--> 
+
+        </ul>
+            
+         <!-- 米面粮油的详细分类，鼠标放上去显示以下div -->
+         {foreach from=$category_brands item=brand_cats name=foo}
+         <div  class="sale_class" >
+                <!--二级分类商品 -->
+                {foreach from=$brand_cats item=brand_cat }
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a href="{$brand_cat.cat.url}">{$brand_cat.cat.name}:</a></span>
+                          <span  class="sale_fenlei_2">
+                            {foreach from=$brand_cat.brand item=brand  name=child}
+                            {if  $smarty.foreach.child.index < 3}
+                                 <a href="{$brand.url}">{$brand.brand_name}</a>
+                            {/if}
+                            {/foreach}   
+                        </span>
+                   </div>
+                {/foreach}  
+         </div>
+         {/foreach}
+         
+         
+         
+         
+         <div  class="sale_class" >
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>大米:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">稻花香</a><a>私享食光</a><a>火山石板</a>
+                          </span>
+                      </div>
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>面粉:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">北大荒富强</a><a>有机饺子粉</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>杂粮:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">玉米糁</a><a>杂粮礼盒</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>食用油:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">橄榄油</a><a>欧伯特</a>
+                          </span>
+                      </div>            
+         </div>
+          <!-- 冲调饮品的详细分类，鼠标放上去显示以下div -->
+         <div  class="sale_class" >
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>有机茶:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">铁观音</a><a>QT-680</a><a>QT-1680</a>
+                          </span>
+                          
+                      </div>
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>豆奶豆乳:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">北大荒芳临</a><a>黑豆味</a><a>原味</a><a>无糖</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>蜂蜜:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">百合康</a><a>五星湖</a><a href="#">汉珍蜜坊</a><a>东北黑蜂</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>果蔬籽粉:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">黄瓜籽粉</a><a>葡萄籽粉</a><a>苦瓜籽粉</a>
+                          </span>
+                      </div>       
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>茶叶:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">普洱</a><a>龙井</a><a>铁观音</a><a>中茶</a>
+                          </span>
+                      </div> 
+         </div>
+          <!-- 进口食品的详细分类，鼠标放上去显示以下div -->
+         <div  class="sale_class" >
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>进口果汁:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">西瑞斯</a><a>苹果味</a><a>芒果味</a><a>宝石红柚</a>
+                          </span>
+                      </div>
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>进口牛奶:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">Conaprole卡贝乐</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>台湾食品:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">食尚森活</a><a>腰果核桃粉</a><a>养生黑五宝</a>
+                          </span>
+                      </div>
+                    <!--  台湾食品较多 分两行显示 -->
+                     <div class="sale_fenlei">
+                         <span class="sale_fenlei_1"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">黑木耳粉</a><a>日月潭龙眼蜜</a><a>养生杏仁</a>
+                          </span>
+                      </div>
+                    
+         </div>
+           <!-- 果蔬生鲜的详细分类，鼠标放上去显示以下div -->
+         <div  class="sale_class">
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>金枪鱼:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">凯基</a><a>野生大目</a><a>野生蓝鳍</a>
+                          </span>
+                      </div>
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>鲜肉禽蛋:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">添康生态</a><a>有机五花肉</a><a>有机瘦肉馅</a>
+                          </span>
+                      </div>
+                      <!-- 肉类食品较多 分两行显示 -->
+                      <div class="sale_fenlei">
+                         <span class="sale_fenlei_1"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">有机小里脊</a><a href="#">有机肉丁</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>蔬菜水果:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">猕猴桃</a><a>红心木瓜</a><a>墨西哥牛油果</a>
+                          </span>
+                      </div>              
+         </div>
+            <!-- 干果山珍的详细分类，鼠标放上去显示以下div -->
+         <div  class="sale_class">
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>干果坚果:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">金疆玉枣</a><a>莓干</a><a>益者有机枣</a>
+                          </span>
+                      </div>
+                      <!-- 干果坚果较多 分两行显示 -->
+                       <div class="sale_fenlei">
+                         <span class="sale_fenlei_1"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">金纱核桃</a><a href="#">金硕杏仁</a><a href="#">金响开心果</a>
+                          </span>
+                      </div>
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>山珍山货:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">宝泉岭</a><a>秋木耳</a><a href="#">香菇</a><a>野生松茸</a>
+                          </span>
+                      </div>
+                      <!-- 山珍山货较多 分两行显示 -->
+                       <div class="sale_fenlei">
+                         <span class="sale_fenlei_1"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">中粮</a><a href="#">黑木耳</a><a href="#">山萃原木香菇</a>
+                          </span>
+                      </div>
+         </div>
+             <!-- 礼品卡的详细分类，鼠标放上去显示以下div -->
+         <div  class="sale_class">
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>一卡换多卡:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">北京金钱豹</a><a>味多美</a><a>面包新语</a>
+                          </span>
+                      </div>
+                      <!-- 干果坚果较多 分两行显示 -->
+                       <div class="sale_fenlei">
+                         <span class="sale_fenlei_1"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">金凤呈祥</a>
+                          </span>
+                      </div>
+                      <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>365卡:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">牛奶预售</a><a>松子提货</a><a>金枪鱼提货</a>
+                          </span>
+                      </div>
+                      <!-- 干果坚果较多 分两行显示 -->
+                       <div class="sale_fenlei">
+                         <span class="sale_fenlei_1"><a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">芳临豆乳</a><a>杂粮礼盒</a><a>有机茶提货卡</a>
+                          </span>
+                      </div>
+                      
+                     <div class="sale_fenlei">
+                          <span class="sale_fenlei_1"><a>礼卡充值:</a></span>
+                          <span  class="sale_fenlei_2">
+                              <a href="#">北大荒</a><a>饺子粉</a>
+                          </span>
+                      </div> 
+         </div>
+             
+        </div>
+
+
+
+
+
+<!--{/if}-->
+<div class="blank5"></div>
+<div class="blank"></div>
+<script type="text/javascript">
+{literal}
+$(function() {
+    var timeout;
+    //显示二级分类
+    $('#menu_ulist a').mouseenter(function(){
+        var index = $(this).attr('index');
+        $( '.sale_class:eq(' + index + ')' ).show();  
+        $(this).addClass('cur');
+    });
+    $('#menu_ulist a').mouseleave(function(){
+        var ele = this;
+        var index = $(this).attr('index');
+        timeout = setTimeout( function(){ 
+            $('.sale_class:eq(' + index + ')' ).hide(); 
+            $(ele).removeClass('cur');
+        },1 );
+    });
+    $('.sale_class').mouseenter(function(){
+        clearTimeout(timeout);
+        var ele = this;
+        var index = 0;
+        $('.sale_class').each(function(i,e){
+            if(e === ele)
+                index = i;
+        });
+        $(ele).show();  
+        $('#menu_ulist a:eq(' + index + ')' ).addClass('cur');
+    });
+    $('.sale_class').mouseleave(function(){
+        var ele = this;
+        $(ele).hide();
+        $('#menu_ulist a').removeClass('cur');
+    });
+});
+
+{/literal}
+</script>

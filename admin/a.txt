@@ -1,0 +1,1 @@
+ INSERT INTO `greenfood`.`green_quick_query` (goods_id, goods_name, simple_pinyin, full_pinyin) VALUES ('1111', '有机黑米（真空）', 'yjhmzk', 'youjiheimizhenkong')

@@ -1,0 +1,79 @@
+<!DOCTYPE wml PUBLIC '-//WAPFORUM//DTD WML 1.1//EN' 'http://www.wapforum.org/DTD/wml_1.1.xml'>
+<wml>
+<head><meta http-equiv='Cache-Control' content='max-age=0'/></head>
+<card id='ecshop' title='ECShop_WAP'>
+<p align='left'>
+<img src='{$wap_logo|default:../images/wap_logo.png}' alt='LOGO' /><br/>
+
+
+{if $best_num > 0}
+[精品推荐]&gt;&gt;<a href='goods_list.php?type=best'>更多</a><br/>
+  {foreach from=$best_goods item=best_data}
+      <a href='goods.php?id={$best_data.id}'>{$best_data.name}</a>[{$best_data.shop_price}]<br/>
+  {/foreach}
+{/if}
+{if $promote_num > 0}
+[促销商品]&gt;&gt;<a href='goods_list.php?type=promote'>更多</a><br/>
+  {foreach from=$promote_goods item=promote_data}
+      <a href='goods.php?id={$promote_data.id}'>{$promote_data.name}</a>[{$promote_data.shop_price}]<br/>
+  {/foreach}
+{/if}
+{if $hot_num > 0}
+<h3> <a href='goods_list.php?type=hot'>热销推荐</a></h3>
+  {foreach from=$hot_goods item=hot_data}
+      <a href='goods.php?id={$hot_data.id}'>{$hot_data.name}</a>[{$hot_data.shop_price}]<br/>
+  {/foreach}
+{/if}
+
+{if 0 && $brand_array}
+&gt;&gt;品牌专区&lt;&lt;<br/>
+{foreach from=$brand_array item=brand_data}
+<a href='brands.php?b_id={$brand_data.brand_id}'>{$brand_data.brand_name}</a><br/>
+{/foreach}
+{/if}
+
+{if $index_loop_cat }
+{foreach from=$index_loop_cat item=loop_cat name=foo}
+<div class="pfloor wrap">
+<div class="clearfix cf{$smarty.foreach.foo.iteration }">
+<h3> <a href="{$loop_cat.cat.url}">{$loop_cat.cat.name} </h3>
+    <div class="pfloor-top f{$smarty.foreach.foo.iteration }">
+        {foreach from=$loop_cat.child_cates item=cate}
+            <a href="{$cate.url}"> {$cate.name} </a> &nbsp;
+        {/foreach}
+    </br>
+    <div class="pfloor-main">
+        
+           <ul style="padding:0px;margin:0px;" class="items">
+              {foreach from=$loop_cat.cate_goods item=goods} 
+                        <li>
+                            <dl>
+                                <dt class="s120 pic">
+                            
+                                    <a href="{$goods.url}"><span class="re-text">{$goods.short_name}</span>
+                                        <span class="re-price">￥<strong>{$goods.price}</strong></span> </a>
+                                 
+                                </dt>
+                            </dl>
+                       </li>
+             {/foreach}            
+        </ul>
+        
+    </div>
+</div>
+</div>
+{/foreach}
+
+
+{/if}
+
+<h3 > [站内资讯]&gt;&gt;<a href='article.php'>更多</a><br/> </h3>
+{if $article_array}
+{foreach from=$article_array item=article_data}
+<a href='article.php?act=detail&amp;a_id={$article_data.article_id}'>{$article_data.title}</a><br/>
+{/foreach}
+{/if}
+{$footer}
+</p>
+</card>
+</wml>

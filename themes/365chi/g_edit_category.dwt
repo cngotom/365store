@@ -1,0 +1,485 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+<link href="js/jquery-ui.css" rel="stylesheet" type="text/css" />
+<link href="js/style/validator.css" rel="stylesheet" type="text/css" />
+<!-- {if $cat_style} -->
+<link href="{$cat_style}" rel="stylesheet" type="text/css" />
+<!-- {/if} -->
+{* 包含脚本文件 *}
+{insert_scripts files='common.js'}
+
+<link rel="stylesheet" href="/js/jquery-ui.css" type="text/css" media="all" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!--当前位置 start-->
+<div class="block box">
+ <div id="ur_here">
+  <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+ </div>
+</div>
+{insert_scripts files='formValidator-4.0.1.min.js,formValidatorRegex.js,validdata.js,transport.js'}
+{insert_scripts files='uploadimage.js'}
+
+
+<!--当前位置 end-->
+<div class="blank"></div>
+<div class="wrap clearfix">
+  <!--left start-->
+  <div class="AreaL">
+    <!-- TemplateBeginEditable name="左边区域" -->
+<!-- #BeginLibraryItem "/library/category_tree.lbi" -->
+
+
+<!-- {if !$is_index} -->
+<div id="list_menu">
+    <ul>
+            <!--{foreach from=$categories item=cat}-->
+                    <!-- {if $cat.id eq $parent_id || $cat.id eq $category } -->
+                    <li class="selected"><a class="main_cate" href="{$cat.url}">{$cat.name|escape:html}</a>
+                        <div style="display:display;" id="cate_list"  >
+                                <!--{foreach from=$cat.cat_id item=child}-->
+                                                <span  <!-- {if $child.id eq $category } --> class='on'<!--{/if}--> ><a  href="{$child.url}">{$child.name|escape:html}</a></span>
+                                    <!--{/foreach}-->
+                        </div>
+                    </li>
+                    <!-- {else} -->
+                       <li class="selectedno"><a class="main_cate" href="{$cat.url}">{$cat.name|escape:html}</a>
+                        <div style="display:none;" id="cate_list">
+                                <!--{foreach from=$cat.cat_id item=child}-->
+                                                <span class=""><a href="{$child.url}">{$child.name|escape:html}</a></span>
+                                 <!--{/foreach}-->
+                        </div>
+                    </li>
+                    <!--{/if}-->
+        <!--{/foreach}--> 
+    </ul>
+</div>
+
+
+<!-- {else} -->
+
+<div id="category_wrap">
+    <h2 title="商品分类"> </h2>
+  <div id="category_tree" class="bor_b">
+    <!--{foreach from=$categories item=cat}-->
+     <div class="items clearfix" >
+     <div class="itemsTitle"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+        <!--{foreach from=$cat.cat_id item=child}-->
+        <dd style="float:left;width:55px;margin-bottom:5px;"><a href="{$child.url}">{$child.name|escape:html}</a></dd>
+        <!--{foreach from=$child.cat_id item=childer}-->
+        <dd style="float:left;">&nbsp;&nbsp;<a href="{$childer.url}">{$childer.name|escape:html}</a></dd>
+        <!--{/foreach}-->
+     <!--{/foreach}-->
+       
+       </div>
+    <!--{/foreach}--> 
+  </div>
+</div>
+
+<!--{/if}-->
+<div class="blank5"></div>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/history.lbi" -->
+
+<div class="box" id='history_div'>
+ <div class="box_1">
+  <div class="mt"><span>{$lang.view_history}</span></div>
+  <div class="boxCenterList clearfix mc" id='history_list'>
+    {insert name='history'}
+  </div>
+ </div>
+</div>
+<div class="blank5"></div>
+<script type="text/javascript">
+if (document.getElementById('history_list').innerHTML.replace(/\s/g,'').length<1)
+{
+    document.getElementById('history_div').style.display='none';
+}
+else
+{
+    document.getElementById('history_div').style.display='block';
+}
+function clear_history()
+{
+Ajax.call('user.php', 'act=clear_history',clear_history_Response, 'GET', 'TEXT',1,1);
+}
+function clear_history_Response(res)
+{
+document.getElementById('history_list').innerHTML = '{$lang.no_history}';
+}
+</script>
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/top10.lbi" -->
+
+<div class="box">
+ <div class="box_2">
+  <div class="top10Tit"></div>
+  <div class="top10List clearfix ">
+  <!-- {foreach name=top_goods from=$top_goods item=goods}-->
+  <ul class="clearfix">
+	<img src="../images/top_{$smarty.foreach.top_goods.iteration}.gif" class="iteration" />
+	<!-- {if $smarty.foreach.top_goods.iteration<4}-->
+      <li class="topimg">
+      <a href="{$goods.url}"><img src="{$goods.thumb}" alt="{$goods.name|escape:html}" class="samllimg" /></a>
+      </li>
+	<!-- {/if} -->		
+      <li {if $smarty.foreach.top_goods.iteration<4}class="iteration1"{/if}>
+      <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name}</a><br />
+      {$lang.shop_price}<font class="f1">{$goods.price}</font><br />
+      </li>
+    </ul>
+  <!-- {/foreach} -->
+  </div>
+ </div>
+</div>
+<div class="blank5"></div>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="左边广告区域（宽200px）" -->
+<!-- TemplateEndEditable -->
+    <!--AD end-->
+  </div>
+  <!--left end-->
+  <!--right start-->
+  <div class="AreaR">
+      <!-- 头部广告 -->
+      <!--{if $head_ad_id}-->
+      <div style="margin-bottom:10px;">
+          <script type="text/javascript" src="affiche.php?act=js&type=0&ad_id={$head_ad_id}"></script>
+      </div>
+     
+      <!-- 头部广告 -->
+      <!--{/if} -->
+      
+	 <!--组合搜索 开始-->
+	  <!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+          <div id="bodyRight" class="searchColMain fr">                                
+            <div class="searchColMainItem searchResultOp">
+                <!--{if $brands.1}-->
+                <dl>
+                    <dt>{$lang.brand}：</dt>
+                    <dd> 
+                        <span class="selection" id="FacetBrands"> 
+                            <!--{foreach from=$brands item=brand}-->
+					<!-- {if $brand.selected} -->
+					<a class="cur">{$brand.brand_name}</a>
+					<!-- {else} -->
+					<a href="{$brand.url}">{$brand.brand_name}</a>
+					<!-- {/if} -->
+				<!--{/foreach}-->
+                        </span>
+                    </dd>
+                </dl>
+                <!--{/if}-->
+                <!--{if $price_grade.1}-->        
+                <dl>
+                    <dt>{$lang.price}：</dt>
+                    <dd>       
+                        <span class="selection"> 
+                            	<!--{foreach from=$price_grade item=grade}-->
+				<!-- {if $grade.selected} -->
+				<a class="cur">{$grade.price_range}</a>
+				<!-- {else} -->
+				<a href="{$grade.url}">{$grade.price_range}&nbsp;</a>
+				<!-- {/if} -->
+                                <!--{/foreach}-->           
+                        </span> 
+                        <!--
+                        <span class="enterPrice" >
+                            <input type="text" id="searchPriceRangeMin" value="" maxlength="8">-<input type="text" id="searchPriceRangeMax" value="" maxlength="8"><a href="javascript:void(0);">确定</a>
+                        </span>
+                        -->
+                    </dd>
+                </dl>       
+                <!--{/if}-->    
+       
+
+   
+      	<!--{foreach from=$filter_attr_list item=filter_attr name=foo} -->
+                <dl >
+                    <dt>{$filter_attr.filter_attr_name|escape:html} :</dt>
+                    <dd>       
+                        <span class="selection"> 
+                           <!--{foreach from=$filter_attr.attr_list item=attr}-->
+				<!-- {if $attr.selected} -->
+				<a class="cur">{$attr.attr_value}</a>
+				<!-- {else} -->
+				<a href="{$attr.url}">{$attr.attr_value}</a>&nbsp;
+				<!-- {/if} -->
+			<!--{/foreach}--> 
+                        </span> 
+                    </dd>
+                </dl>       
+           <!--{/foreach}-->
+
+            </div>
+        </div>
+          
+
+		<div class="blank5"></div>
+	  <!-- {/if} -->
+	 <!--组合搜索 结束-->
+   <!-- TemplateBeginEditable name="右边区域" -->
+<!-- #BeginLibraryItem "/library/goods_list.lbi" -->
+
+<div id="showways" class="rankOp .mt10">
+            <ul class="rank">
+              <!-- 排序方式 -->
+                <li class="<!-- {if $pager.sort == 'last_update'} -->normal<!-- {else} -->default<!-- {/if} -->">
+                    <a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->">默认排序</a>	</li>
+                <li class="<!-- {if $pager.sort == 'salesnum'} -->{$pager.order}<!-- {else} -->default<!-- {/if} -->">
+                    <a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=salesnum&order=<!-- {if $pager.sort == 'salesnum' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->"><span>销量</span></a></li>	                        	 
+                <li class="<!-- {if $pager.sort == 'shop_price'} -->{$pager.order}<!-- {else} -->default<!-- {/if} -->">
+                    <a  href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->"> <span>价格</span></a></li>
+                <li class="<!-- {if $pager.sort == 'comment_rank'} -->{$pager.order}<!-- {else} -->default<!-- {/if} -->">
+                    <a  href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=comment_rank&order=<!-- {if $pager.sort == 'comment_rank' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->"><span>评价</span></a></li>	                        	 
+                <li class="<!-- {if $pager.sort == 'goods_id'} -->{$pager.order}<!-- {else} -->default<!-- {/if} -->">
+                    <a  href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->"><span>上架时间</span></a>
+                </li>	                        	 
+             </ul>             
+             <ul class="select">
+                <li>筛 选：</li>
+                <li>
+                    <input type="checkbox" name="filter" value="1" onclick="clickFilterBox();">
+                    <label>促销</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="filter" value="2" onclick="clickFilterBox();">
+                    <label>推荐</label>
+                </li>
+                <li>
+                    <input type="checkbox" name="filter" value="3" onclick="clickFilterBox();">
+                    <label>新品</label>
+                </li>
+             </ul>
+</div>
+<div class="itemSearchResult">
+          <ul>
+
+    <!--{foreach name=goods_list from=$goods_list item=goods}-->
+               <li class="producteg" id="producteg_1531478">
+                	<a id="pdlink1_1531478" href="{$goods.url}" target="_blank"  >
+	                		<img src="{$goods.goods_thumb}" title="{$goods.goods_name}"></a>
+                    <a class="title" id="pdlink2_1531478" href="#" target="_blank" title="{$goods.goods_name}" onclick="addTrackPositionToCookie('1','pro_0');">
+                                 <!-- {if $goods.goods_style_name} -->
+        {$goods.goods_style_name}<br />
+        <!-- {else} -->
+        {$goods.goods_name}<br />
+        <!-- {/if} --> </a>
+                    <p class="price">
+                        <strong>    <!--{if $goods.promote_price neq "" } -->
+            {$lang.promote_price}<font class="shop_s">{$goods.promote_price}</font><br />
+            <!--{else}-->
+            <strong>{$goods.shop_price}</strong>
+            <!--{/if}--></strong>
+                        
+                        <span style="float:right;" class="star">     
+                          
+                            <img src="images/stars{$goods.comment_rank}.gif" alt="comment rank {$goods.comment_rank}" />
+                           
+                          <a href="http://www.yihaodian.com/product/1531478#productExperience" target="_blank">({$goods.comment_count}条评分)</a>
+                        </span>                        
+                    </p>                             
+                    <p>
+                        <button class="buy" id="buyButton_1531478" specialtype="0" onclick="javascript:window.open('http://www.yihaodian.com/product/1531478_2026');gotracker('2', 'btn3_0', 1531478);">立即购买</button>
+                        <button class="fav" id="favorButton_1531478" onclick="javascript:submitFavorite(1531478, 0); gotracker('2','fav_0', 1531478);">收藏</button>
+                    </p>
+                    <sup>新品</sup>
+              </li>
+               <!--{/foreach}-->
+   
+          </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="blank5"></div>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/pages.lbi" -->
+
+<!--翻页 start-->
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+<!-- {if $pager.styleid eq 0 } -->
+<div id="pager">
+  {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <select name="page" id="page" onchange="selectPage(this)">
+    {html_options options=$pager.array selected=$pager.page}
+    </select>
+</div>
+<!--{else}-->
+
+<!--翻页 start-->
+ <div id="pager" class="pagebar">
+  <span class="f_l f6" style="margin-right:10px;">{$lang.pager_1}<b>{$pager.record_count}</b> {$lang.pager_2}</span>
+  <!-- {if $pager.page_first} --><a href="{$pager.page_first}">{$lang.page_first} ...</a><!-- {/if} -->
+  <!-- {if $pager.page_prev} --><a class="prev" href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+  <!-- {if $pager.page_count neq 1} -->
+    <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+      <span class="page_now">{$key}</span>
+      <!-- {else} -->
+      <a href="{$item}">[{$key}]</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+  <!-- {/if} -->
+
+  <!-- {if $pager.page_next} --><a class="next" href="{$pager.page_next}">{$lang.page_next}</a><!-- {/if} -->
+  <!-- {if $pager.page_last} --><a class="last" href="{$pager.page_last}">...{$lang.page_last}</a><!-- {/if} -->
+  <!-- {if $pager.page_kbd} -->
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <kbd style="float:left; margin-left:8px; position:relative; bottom:3px;"><input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" class="B_blue" /></kbd>
+    <!-- {/if} -->
+</div>
+<!--翻页 END-->
+
+<!-- {/if} -->
+</form>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+
+  </div>  
+  <!--right end-->
+</div>
+<div class="blank5"></div>
+<!--帮助-->
+<div class="block">
+  <div class="box">
+   <div class="helpTitBg clearfix">
+    <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+   </div>
+  </div>  
+</div>
+<div class="blank"></div>
+<!--帮助-->
+<!--友情链接 start-->
+<!--{if $img_links  or $txt_links }-->
+<div id="bottomNav" class="box">
+ <div class="box_1">
+  <div class="links clearfix">
+    <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+    <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" alt="{$link.name}" border="0" /></a>
+    <!--结束图片类型的友情链接{/foreach}-->
+    <!-- {if $txt_links} -->
+    <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+    [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] 
+    <!--结束文字类型的友情链接{/foreach}-->
+    <!-- {/if} -->
+  </div>
+ </div>
+</div>
+<!--{/if}-->
+<!--友情链接 end-->
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+<div id="upload_dialog" title="上传并导出图片" class="upload_dialog"></div>
+
+
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+
+ 
+function replaceURL(url){
+	i=10;
+	while(i--)
+	url = url.replace("/","|");
+	return url;
+}
+function filterID(id)
+{
+    return id.substr("goodsimg_".length);
+}
+function filterURL(url)
+{
+    return url.substr("/images/temp/F_".length);
+}
+UploadImg.callback_success = function(id,fileName){
+	if(confirm("确定要保存修改到服务器么？\n"+id)){
+		 $.getJSON("Goods/UpdateImage/"+filterID(id)+"/"+filterURL(fileName)+"/rnd"+Math.random(),function(result){
+			    alert(result.msg);
+		 });
+	}else{		
+		$("#"+id)[0].src=UploadImg.oldpic;
+	}
+}
+{/literal}
+//-->
+</script>
+
+
+
+
+<div id="pic_layer" style="display:none;position: absolute" onmouseout="this.style.display='none';" onmouseover="this.style.display=''">
+    <div id="layer_content">
+        
+    </div>
+</div>
+
+</body>
+</html>

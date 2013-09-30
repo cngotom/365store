@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <div class="index_sort">
+            <a></a>
+     </div>
+<div id="category_wrap">
+    <h2 title="商品分类"> </h2>
+  <div id="category_tree" class="bor_b">
+    <!--{foreach from=$categories item=cat}-->
+     <div class="items">
+     <div class="itemsTitle"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+        <!--{foreach from=$cat.cat_id item=child}-->
+        <dd><a href="{$child.url}">{$child.name|escape:html}</a></dd>
+        <!--{foreach from=$child.cat_id item=childer}-->
+        <dd>&nbsp;&nbsp;<a href="{$childer.url}">{$childer.name|escape:html}</a></dd>
+        <!--{/foreach}-->
+     <!--{/foreach}-->
+       
+       </div>
+    <!--{/foreach}--> 
+  </div>
+    
+    
+    	<div class="category_type"><a href="/owntea/">自饮馆</a></div>
+<div class="filter_use bor_b"><a href="/owntea/#yangwei">养胃护胃</a> <a href="/owntea/#jieshu">清热解暑</a> <a href="/owntea/#jianfei">降脂减肥</a> <a href="/owntea/#tishen">提神消疲</a></div>
+<div class="category_type"><a href="/placetea/">送礼馆</a></div>
+<div class="filter_use bor_b"><a href="/placetea/#zhangbei">送长辈</a> <a href="/placetea/#lingdao">送领导</a> <a href="/placetea/#kehu">送客户</a> <a href="/placetea/#haoyou">送好友</a> <a href="/placetea/#daoshi">送导师</a> <a href="/placetea/#tongshi">送同事 </a></div> 		<div class="category_type skinprice">价格</div>
+		<div id="s_price">
+			<a rel="nofollow" href="http://www.zuipin.cn/catalogsearch/advanced/result/?price[from]=0&amp;price[to]=100">0-100元</a>
+			<a rel="nofollow" href="http://www.zuipin.cn/catalogsearch/advanced/result/?price[from]=101&amp;price[to]=300">101-300元</a>
+			<a rel="nofollow" href="http://www.zuipin.cn/catalogsearch/advanced/result/?price[from]=301&amp;price[to]=500">301-500元</a>
+			<a rel="nofollow" href="http://www.zuipin.cn/catalogsearch/advanced/result/?price[from]=501&amp;price[to]=800">501-800元</a>
+			<a rel="nofollow" href="http://www.zuipin.cn/catalogsearch/advanced/result/?price[from]=801&amp;price[to]=500000">800元以上</a>
+			<form action="http://www.zuipin.cn/catalogsearch/advanced/result/" id="priceTable">
+			<p class="search">
+				<input type="text" name="price[from]" id="price" class="price validate-number">
+				<span>-</span>
+				<input type="text" name="price[to]" id="price_to" class="price validate-number">
+				<input width="50" type="image" height="23" onclick="javascript:$('priceTable').submit();" src="http://www.zuipin.cn/skin/frontend/default/default/images/psearch-btn.png" class="search-btn">
+			</p>
+			</form>
+		</div>
+</div>
+<div class="blank5"></div>

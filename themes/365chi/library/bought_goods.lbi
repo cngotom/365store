@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $bought_goods} -->
+<div class="box">
+     <div class="mt"><span>{$lang.shopping_and_other}</span></div>
+  <div class="mc clearfix boxCenterList">
+  <ul class="clearfix">
+
+       <!--{foreach from=$bought_goods item=goods}-->
+       <li style="width:100%">
+                <div class="goodsimg">
+                        <div style="float:left">
+                            <a href="{$goods.url}"><img src="{$goods.goods_thumb}" border="1" width="61" height="61"  class="samllimg"  alt="{$goods.goods_name|escape:html}"/></a>
+                        </div>
+                         <div style="float:left;margin-left: 5px;">
+                                <a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a> <br>
+                               <!-- {if $releated_goods_data.promote_price neq 0} -->
+                                {$lang.promote_price}<font class="f1">{$goods.formated_promote_price}</font>
+                                <!-- {else} -->
+                                {$lang.shop_price}<font class="f1">{$goods.shop_price}</font>
+                                <!-- {/if} -->
+                         </div>
+                    </div>
+           
+          </li>
+        <!-- {/foreach} -->
+        
+     </ul>
+  </div>
+ </div>
+
+        
+ <!-- {/if} -->

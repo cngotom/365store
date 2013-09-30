@@ -1,0 +1,39 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{foreach from=$index_loop_cat item=loop_cat name=foo}
+<div class="pfloor wrap">
+<div class="clearfix cf{$smarty.foreach.foo.iteration }">
+    <div class="pfloor-top f{$smarty.foreach.foo.iteration }">
+        {foreach from=$loop_cat.child_cates item=cate}
+        <a href="{$cate.url}"> {$cate.name} </a> |&nbsp;
+        {/foreach}
+        <a href="{$loop_cat.url}">更多</a> &gt;&gt; </div>
+    
+    <div class="blank5"></div>
+    <div class="pfloor-left"><a href="{$loop_cat.url}"><img src="{$smarty.const.NGINX_IMG_HOST}/themes/365chi/images/green/left_{$smarty.foreach.foo.iteration }.jpg" width="195" height="390"></a></div>
+    
+    <div class="pfloor-main">
+        
+           <ul style="padding:0px;margin:0px;" class="items">
+              {foreach from=$loop_cat.cate_goods item=goods} 
+                        <li>
+                            <dl>
+                                <dt class="s120 pic">
+                            
+                                    <a href="{$goods.url}"><img width="193" height="193" src="{$goods.goods_img}" alt="{$goods.name}" id="goodsimg_{$goods.id}" class="ajax-modify-pic">
+                                        <div class="bgleft"></div>
+                                        <div class="bgright"></div></a>
+                                        <span class="re-text">{$goods.short_name}</span>
+                                        <span class="re-price">￥<strong>{$goods.price}</strong></span>
+                                 
+                                </dt>
+                            </dl>
+                       </li>
+             {/foreach}            
+        </ul>
+        
+    </div>
+</div>
+</div>
+{/foreach}
+

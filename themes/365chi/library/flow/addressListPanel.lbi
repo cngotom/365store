@@ -1,0 +1,17 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">   
+<!-- {if $consignee_list}-->
+<div class="cydz">
+        <ul>
+            <!-- {foreach  from=$consignee_list item=con} -->
+            <li id="addrIi{$con.address_id}"  ><table cellspacing="0" cellpadding="0" border="0" style="width:98%">
+                    <tbody>
+                        <tr><td style="width:20px;"><input type="radio" onclick="changeConsignee(this,'{$con.address_id}');" name="rbtnAddr" addresstype="1" id="addr_{$con.address_id}"></td>
+                            <td><strong>{$con.consignee}</strong>&nbsp;{$con.address_name}</td>
+                            <td style="width:40px"><a onclick="DelAddress(this,'{$con.address_id}');" class="remark" href="#none">[删除]</a></td>
+                        </tr></tbody>
+            </table></li>
+            <!-- {/foreach} -->
+        </ul>
+        
+    </div>
+<!-- {/if} -->
